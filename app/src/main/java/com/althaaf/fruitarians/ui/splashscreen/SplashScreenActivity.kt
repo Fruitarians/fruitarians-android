@@ -13,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import com.althaaf.fruitarians.MainActivity
 import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.databinding.ActivitySplashScreenBinding
+import com.althaaf.fruitarians.ui.onboarding.OnBoardingActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -53,7 +54,7 @@ class SplashScreenActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO) {
             delay(SPLASH_TIME_OUT)
             withContext(Dispatchers.Main){
-                startActivity(Intent(this@SplashScreenActivity, MainActivity::class.java))
+                startActivity(Intent(this@SplashScreenActivity, OnBoardingActivity::class.java))
                 finish()
             }
         }
