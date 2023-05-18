@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.register.RegisterContinueActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/logo_app_text"
+            android:layout_width="205dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="48dp"
+            android:src="@drawable/logo_withtext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/header_text_register"
+            style="@style/Medium14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            app:layout_constraintEnd_toEndOf="@+id/logo_app_text"
+            app:layout_constraintStart_toStartOf="@+id/logo_app_text"
+            app:layout_constraintTop_toBottomOf="@+id/logo_app_text"
+            tools:text="Create new account" />
+
+        <TextView
+            android:id="@+id/title_address"
+            style="@style/Medium14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="60dp"
+            android:text="@string/your_address"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_text_register" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ed_register_address"
+            style="@style/CustomOutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="34dp"
+            app:helperText="Ex: Jl. Perumahan Duta Bintaro"
+            app:helperTextEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_address"
+            app:layout_constraintTop_toBottomOf="@+id/title_address">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_register_address"
+                style="@style/Regular12sp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Address"
+                android:inputType="textPersonName"
+                android:maxLines="2"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_city"
+            style="@style/Medium14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/city"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_register_address" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ed_register_city"
+            style="@style/CustomOutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="34dp"
+            app:helperText="Ex: Kota Tangerang"
+            app:helperTextEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_city"
+            app:layout_constraintTop_toBottomOf="@+id/title_city">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_register_city"
+                style="@style/Regular12sp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="City"
+                android:inputType="text"
+                android:maxLines="2"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_state"
+            style="@style/Medium14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/state"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_register_city" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ed_register_state"
+            style="@style/CustomOutlinedBoxDropDown"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="34dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_state"
+            app:layout_constraintTop_toBottomOf="@+id/title_state">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextState"
+                style="@style/Regular12sp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/state"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_phoneNumber"
+            style="@style/Medium14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/phone_number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_register_state" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ed_register_phoneNumber"
+            style="@style/CustomOutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="34dp"
+            app:prefixText="+62"
+            app:helperText="Ex: 85875814528"
+            app:helperTextEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_phoneNumber"
+            app:layout_constraintTop_toBottomOf="@+id/title_phoneNumber">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_register_phoneNumber"
+                style="@style/Regular12sp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="@string/phone_number"
+                android:inputType="text"
+                android:maxLines="2"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/button_register"
+            style="@style/MediumWhite16sp"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="34dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/bg_button_login"
+            android:text="@string/register"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_register_phoneNumber" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
