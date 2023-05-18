@@ -1,18 +1,34 @@
 package com.althaaf.fruitarians.ui.onboarding
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
 import com.althaaf.fruitarians.R
+import com.althaaf.fruitarians.databinding.ActivityOnBoardingBinding
+import com.althaaf.fruitarians.ui.login.LoginActivity
+import com.althaaf.fruitarians.ui.register.RegisterActivity
 
 class OnBoardingActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityOnBoardingBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_on_boarding)
+        binding = ActivityOnBoardingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupView()
+        setupAction()
+    }
+
+    private fun setupAction() {
+        binding.buttonStarted.setOnClickListener {
+            startActivity(Intent(this@OnBoardingActivity, LoginActivity::class.java))
+            finish()
+        }
     }
 
     private fun setupView() {
