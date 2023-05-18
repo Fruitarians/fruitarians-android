@@ -5,4 +5,12 @@
     <string name="title_notifications">Notifications</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_menu_1">Welcome</string>
+    <string name="title_menu_2">Choose</string>
+    <string name="title_menu_3">Scan</string>
+    <string name="desc_menu_1">Welcome ratrians, fresh fruit for your healthy body is ready to fulfill your body health!</string>
+    <string name="desc_menu_2">Choose fruits that are fresh for our beloved bodies</string>
+    <string name="desc_menu_3">Scan the fruit you choose to check the freshness of the fruit to keep it healthy for consumption</string>
+    <string name="text_started">Get Started for free</string>
 </resources>
