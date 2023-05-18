@@ -59,7 +59,7 @@
                 android:id="@+id/input_register_address"
                 style="@style/Regular12sp"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Address"
                 android:inputType="textPersonName"
@@ -95,11 +95,11 @@
                 android:id="@+id/input_register_city"
                 style="@style/Regular12sp"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="City"
+                android:maxLines="1"
                 android:inputType="text"
-                android:maxLines="2"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -129,7 +129,7 @@
                 android:id="@+id/autoCompleteTextState"
                 style="@style/Regular12sp"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:hint="@string/state"
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -163,11 +163,11 @@
                 android:id="@+id/input_register_phoneNumber"
                 style="@style/Regular12sp"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/phone_number"
-                android:inputType="text"
-                android:maxLines="2"
+                android:inputType="phone"
+                android:maxLines="1"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
