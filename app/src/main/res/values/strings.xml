@@ -13,4 +13,10 @@
     <string name="desc_menu_2">Choose fruits that are fresh for our beloved bodies</string>
     <string name="desc_menu_3">Scan the fruit you choose to check the freshness of the fruit to keep it healthy for consumption</string>
     <string name="text_started">Get Started for free</string>
+    <string name="header_text_login">Login to your Account</string>
+    <string name="login_text">Login</string>
+    <string name="title_email">Your Email Address</string>
+    <string name="remember_me">Remember me</string>
+    <string name="tv_signup">Don\'t have an account? Sign Up</string>
+    <string name="sign_up">Sign Up</string>
 </resources>
