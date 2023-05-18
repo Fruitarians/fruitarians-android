@@ -285,7 +285,7 @@
             motion:layout_constraintStart_toStartOf="parent"
             android:layout_marginBottom="50dp"
             motion:layout_constraintBottom_toTopOf="@+id/menu2"
-            android:alpha="1" />
+            android:alpha="0" />
     </ConstraintSet>
     <Transition
         motion:constraintSetStart="@+id/menu3"
