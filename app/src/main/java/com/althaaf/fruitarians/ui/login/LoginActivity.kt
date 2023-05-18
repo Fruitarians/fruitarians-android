@@ -1,5 +1,6 @@
 package com.althaaf.fruitarians.ui.login
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,8 +9,10 @@ import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.view.WindowInsets
 import android.view.WindowManager
+import com.althaaf.fruitarians.MainActivity
 import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.databinding.ActivityLoginBinding
+import com.althaaf.fruitarians.ui.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -22,6 +25,24 @@ class LoginActivity : AppCompatActivity() {
 
         setupView()
         setupText()
+        setupAction()
+    }
+
+    private fun setupAction() {
+        binding.tvSignup.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
+        }
+
+        binding.forgetPassword.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, ForgotPasswordActivity::class.java))
+        }
+
+        binding.buttonLogin.setOnClickListener {
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun setupText() {
