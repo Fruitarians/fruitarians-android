@@ -9,9 +9,11 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.althaaf.fruitarians.MainActivity
 import com.althaaf.fruitarians.R
+import com.althaaf.fruitarians.core.di.Injection
 import com.althaaf.fruitarians.databinding.ActivitySplashScreenBinding
 import com.althaaf.fruitarians.ui.onboarding.OnBoardingActivity
 import kotlinx.coroutines.Dispatchers
@@ -22,7 +24,7 @@ import kotlinx.coroutines.withContext
 class SplashScreenActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashScreenBinding
-
+    private lateinit var splashScreenViewModel: SplashScreenViewModel
 
     private val SPLASH_TIME_OUT:Long = 3000
 
@@ -33,7 +35,12 @@ class SplashScreenActivity : AppCompatActivity() {
 
         setupAnimation()
         setupAction()
+        setupViewModel()
         setupView()
+    }
+
+    private fun setupViewModel() {
+        splashScreenViewModel = ViewModelProvider(this, ViewModelFactory.getInstance(this))[SplashScreenViewModel::class.java]
     }
 
     private fun setupAnimation() {
@@ -54,8 +61,25 @@ class SplashScreenActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO) {
             delay(SPLASH_TIME_OUT)
             withContext(Dispatchers.Main){
-                startActivity(Intent(this@SplashScreenActivity, OnBoardingActivity::class.java))
-                finish()
+                checkUserSession()
+            }
+        }
+    }
+
+    private fun checkUserSession() {
+        splashScreenViewModel.getUserSession().observe(this) {
+            it?.let { userData ->
+                if (userData.accessToken.isEmpty()) {
+                    val intent = Intent(this@SplashScreenActivity, OnBoardingActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intent)
+                    finish()
+                } else {
+                    val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intent)
+                    finish()
+                }
             }
         }
     }
