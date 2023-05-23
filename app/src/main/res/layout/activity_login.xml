@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.login.LoginActivity">
+    tools:context=".ui.authentication.login.LoginActivity">
 
     <ImageView
         android:id="@+id/logo_app_text"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        tools:text="Login yo your Account"
+        tools:text="Login to your Account"
         app:layout_constraintEnd_toEndOf="@+id/logo_app_text"
         app:layout_constraintStart_toStartOf="@+id/logo_app_text"
         app:layout_constraintTop_toBottomOf="@+id/logo_app_text" />
@@ -131,15 +131,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/remember_me" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="54dp"
+        android:visibility="gone"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/remember_me"
+        app:lottie_autoPlay="true"
+        tools:visibility="visible"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loadinglottie"
+        />
+
     <TextView
         android:id="@+id/tv_signup"
         style="@style/Medium12sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="120dp"
         app:layout_constraintEnd_toEndOf="@+id/button_login"
         app:layout_constraintStart_toStartOf="@+id/button_login"
-        app:layout_constraintTop_toBottomOf="@+id/button_login"
+        app:layout_constraintTop_toBottomOf="@+id/remember_me"
         tools:text="@string/tv_signup" />
 
 
