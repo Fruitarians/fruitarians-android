@@ -4,39 +4,42 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.althaaf.fruitarians.R
+import com.althaaf.fruitarians.core.data.network.authentication.response.login.User
+import com.althaaf.fruitarians.core.helper.HomeViewModelFactory
 import com.althaaf.fruitarians.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+
+    private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+        return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupViewModel()
+        setupView()
+    }
+
+    private fun setupView() {
+        homeViewModel.getUserSession().observe(requireActivity()) {
+            binding.titleMyname.text = getString(R.string.myname, it.name)
+        }
+    }
+
+    private fun setupViewModel() {
+        homeViewModel = ViewModelProvider(requireActivity(), HomeViewModelFactory.getInstance(requireActivity()))[HomeViewModel::class.java]
     }
 }
