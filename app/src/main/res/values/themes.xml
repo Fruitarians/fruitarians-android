@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/white</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -60,6 +60,12 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="Regular20sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
     <style name="Medium12sp" parent="TextAppearance.AppCompat">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:fontFamily">@font/poppins_medium</item>
@@ -94,6 +100,12 @@
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Medium20sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="Medium40sp" parent="TextAppearance.AppCompat">
