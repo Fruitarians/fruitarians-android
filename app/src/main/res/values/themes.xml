@@ -11,15 +11,80 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Theme.StatusBarGreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/green</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/green</item>
+    </style>
+
+    <style name="Theme.StatusBarOrange" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/green</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/green</item>
+    </style>
+
+    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="RoundedSquare">
+        <item name="cornerSize">10%</item>
+    </style>
+
+    <style name="RoundedSquare10dp">
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="RoundedSquare16dp">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="RoundedSquare8dp">
+        <item name="cornerSize">8dp</item>
+    </style>
+
     <style name="CustomOutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/black40</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeColor">@color/green</item>
         <item name="boxCornerRadiusBottomEnd">24dp</item>
         <item name="boxCornerRadiusBottomStart">24dp</item>
         <item name="boxCornerRadiusTopEnd">24dp</item>
         <item name="boxCornerRadiusTopStart">24dp</item>
+    </style>
+
+    <style name="CustomOutlinedBox2" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">#E0E0E0</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxCornerRadiusTopStart">8dp</item>
+    </style>
+
+    <style name="CustomOutlinedBox3" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusTopStart">16dp</item>
     </style>
 
     <style name="CustomOutlinedBoxDropDown" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
@@ -30,8 +95,61 @@
         <item name="boxCornerRadiusTopStart">24dp</item>
     </style>
 
+    <style name="CustomOutlinedBoxDropDown2" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">@color/black40</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <style name="RegularWhite9sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">9sp</item>
+    </style>
+
+    <style name="RegularWhite10sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="Regular10sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="Regular8sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">8sp</item>
+    </style>
+
+    <style name="Regular6sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">6sp</item>
+    </style>
+
     <style name="Regular12sp" parent="TextAppearance.AppCompat">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="RegularGreen12sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/green</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="RegularGrey12sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#C2C2C2</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="RegularWhite12sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/poppins_regular</item>
         <item name="android:textSize">12sp</item>
     </style>
@@ -42,13 +160,21 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="RegularGrey14sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#9E9E9E</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="Regular16sp" parent="TextAppearance.AppCompat">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:fontFamily">@font/poppins_regular</item>
         <item name="android:textSize">16sp</item>
 
 
-    </style> <style name="RegularWhite16sp" parent="TextAppearance.AppCompat">
+    </style>
+
+    <style name="RegularWhite16sp" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/poppins_regular</item>
         <item name="android:textSize">16sp</item>
@@ -66,8 +192,38 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="Regular32sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
     <style name="Medium12sp" parent="TextAppearance.AppCompat">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="MediumBlack5012sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#C2C2C2</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="MediumWhite12sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="MediumDanger12sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#99CB3A31</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="MediumBlack6012sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#9E9E9E</item>
         <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:textSize">12sp</item>
     </style>
@@ -78,8 +234,26 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="MediumGreen12sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/green</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
     <style name="Medium14sp" parent="TextAppearance.AppCompat">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="MediumWhite14sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="MediumGreen14sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/green</item>
         <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:textSize">14sp</item>
     </style>
@@ -120,8 +294,38 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="SemiBold11sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="SemiBoldGreen12sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/green</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="SemiBoldGreen10sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/green</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="SemiBoldWhite14sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
     <style name="SemiBold16sp" parent="TextAppearance.AppCompat">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="SemiBoldWhite16sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
         <item name="android:textSize">16sp</item>
     </style>
@@ -131,4 +335,25 @@
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
         <item name="android:textSize">18sp</item>
     </style>
+
+    <style name="SemiBoldGreen18sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/green</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="SemiBoldWhite18sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Theme.Fruitarians.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Fruitarians.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Fruitarians.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
