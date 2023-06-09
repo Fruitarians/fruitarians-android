@@ -1,7 +1,6 @@
 package com.althaaf.fruitarians.ui.authentication.register
 
 import android.content.Intent
-import android.nfc.NfcAdapter.EXTRA_DATA
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,13 +14,11 @@ import android.view.WindowManager
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.ViewModelProvider
 import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.core.data.network.authentication.request.register.RegisterRequest
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiResult
 import com.althaaf.fruitarians.core.helper.AuthViewModelFactory
-import com.althaaf.fruitarians.databinding.ActivityRegisterBinding
 import com.althaaf.fruitarians.databinding.ActivityRegisterContinueBinding
 import com.althaaf.fruitarians.ui.authentication.login.LoginActivity
 
@@ -159,7 +156,7 @@ class RegisterContinueActivity : AppCompatActivity() {
         binding.headerTextRegister.text = spannableStringHeader
 
         val items = listOf("Indonesia", "Jepang")
-        val adapter = ArrayAdapter(this, R.layout.list_items, items)
+        val adapter = ArrayAdapter(this, R.layout.list_select, items)
         (binding.autoCompleteTextState as? AutoCompleteTextView)?.setAdapter(adapter)
     }
 
