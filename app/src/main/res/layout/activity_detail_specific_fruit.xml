@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.detailfruitstore.DetailSpecificFruitActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/toolbar_border"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                style="@style/SemiBold14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fruit Detail"
+                android:layout_gravity="center" />
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/bg_button_back"
+                android:src="@drawable/btnback"
+                />
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/specific_toko"
+            style="@style/Medium14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            tools:text="Toko Pak Prabowo" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/specific_image"
+            android:layout_width="330dp"
+            android:layout_height="330dp"
+            android:layout_marginTop="16dp"
+            app:shapeAppearanceOverlay="@style/RoundedSquare16dp"
+            android:background="@drawable/bg_features_fruit_variant"
+            tools:src="@tools:sample/avatars"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/specific_toko" />
+
+        <TextView
+            android:id="@+id/specific_buah"
+            style="@style/Medium18sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="39dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toStartOf="@+id/specific_stock"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/specific_image"
+            tools:text="Buah Khuldi Berbahaya" />
+
+        <TextView
+            android:id="@+id/specific_stock"
+            style="@style/Regular12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="42dp"
+            android:textAlignment="textEnd"
+            app:layout_constraintBottom_toBottomOf="@+id/specific_buah"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/specific_image"
+            tools:text="Stock 200" />
+
+        <TextView
+            android:id="@+id/specific_unit"
+            style="@style/Regular12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAlignment="textEnd"
+            app:layout_constraintEnd_toEndOf="@+id/specific_stock"
+            app:layout_constraintTop_toBottomOf="@+id/specific_stock"
+            tools:text="/kilogram" />
+
+        <TextView
+            android:id="@+id/specific_description"
+            style="@style/Regular12sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="88dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/specific_buah"
+            app:layout_constraintTop_toBottomOf="@+id/specific_price"
+            tools:text="Buah Khuldi sangat enak loh guys rasanya, sangat mencetar dan membahana" />
+
+        <TextView
+            android:id="@+id/specific_price"
+            style="@style/SemiBold18sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="88dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/specific_buah"
+            app:layout_constraintTop_toBottomOf="@+id/specific_unit"
+            tools:text="Rp14.000"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_move_wa"
+            style="@style/MediumWhite16sp"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="42dp"
+            android:background="@drawable/bg_button_started"
+            android:text="Order Now"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/specific_description" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_cart"
+            style="@style/MediumWhite16sp"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="42dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_button_started"
+            android:text="Add to Cart"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_move_wa" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieLoading"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loadinglottie"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>
