@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.althaaf.fruitarians.core.data.local.model.UserModel
+import com.althaaf.fruitarians.core.data.network.dashboard.DataUserResponse
 import com.althaaf.fruitarians.core.data.network.profile.ProfileRepository
 import com.althaaf.fruitarians.core.data.network.profile.logout.LogoutResponse
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiResult
@@ -15,8 +16,8 @@ class ProfileViewModel(private val profileRepository: ProfileRepository): ViewMo
         return  profileRepository.logout()
     }
 
-    fun getUserSession(): LiveData<UserModel> {
-        return profileRepository.getUserSession()
+    fun getAllDataUser(): LiveData<ApiResult<DataUserResponse>> {
+        return profileRepository.getAllDataUser()
     }
 
     fun clearUserSession() {
