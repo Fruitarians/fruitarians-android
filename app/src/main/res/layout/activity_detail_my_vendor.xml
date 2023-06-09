@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.myvendor.DetailMyVendorActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/toolbar_border"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/SemiBold14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detail Vendor Partner"
+            android:layout_gravity="center" />
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="32dp"
+            android:background="@drawable/bg_button_back"
+            android:src="@drawable/btnback"/>
+
+        <ImageButton
+            android:id="@+id/btn_delete"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/bg_button_back"
+            android:src="@drawable/material_symbols_delete"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:elevation="12dp"
+        app:cardElevation="12dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/detail_partner_name"
+                style="@style/Medium20sp"
+                android:layout_width="0dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Toko Buah Prabowo" />
+
+            <TextView
+                android:id="@+id/detail_partner_joined"
+                style="@style/Regular10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detail_partner_name"
+                tools:text="Joined 29 Jan 2023" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_profile"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="28dp"
+                android:elevation="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detail_partner_joined"
+                android:src="@drawable/default_img_toko" />
+
+            <TextView
+                android:id="@+id/detail_partner_owner"
+                style="@style/Medium14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@+id/img_profile"
+                app:layout_constraintTop_toTopOf="@+id/img_profile"
+                tools:text="Felda Cantik" />
+
+            <TextView
+                android:id="@+id/tv_owner"
+                style="@style/RegularGrey12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Owner"
+                app:layout_constraintStart_toStartOf="@+id/detail_partner_owner"
+                app:layout_constraintTop_toBottomOf="@+id/detail_partner_owner" />
+
+            <TextView
+                android:id="@+id/tv_id_toko"
+                style="@style/RegularGrey12sp"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="28dp"
+                android:text="ID Toko                   :"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_profile" />
+
+            <TextView
+                android:id="@+id/detail_partner_id_toko"
+                style="@style/Regular12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@+id/tv_id_toko"
+                app:layout_constraintTop_toTopOf="@+id/tv_id_toko"
+                tools:text="085875814528" />
+
+            <TextView
+                android:id="@+id/tv_id_telepon"
+                style="@style/RegularGrey12sp"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="20dp"
+                android:text="No Handpohone  :"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_id_toko" />
+
+            <TextView
+                android:id="@+id/detail_partner_telepon"
+                style="@style/Regular12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                tools:text="98765467362787"
+                app:layout_constraintStart_toEndOf="@+id/tv_id_toko"
+                app:layout_constraintTop_toTopOf="@+id/tv_id_telepon" />
+
+            <TextView
+                android:id="@+id/tv_category"
+                style="@style/RegularGrey12sp"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="4dp"
+                android:text="Category               :"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_id_telepon" />
+
+            <TextView
+                android:id="@+id/detail_partner_category"
+                style="@style/Regular12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@+id/tv_id_toko"
+                app:layout_constraintTop_toTopOf="@+id/tv_category"
+                tools:text="Priority" />
+
+            <TextView
+                android:id="@+id/tv_details"
+                style="@style/RegularGrey12sp"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="4dp"
+                android:text="Details                    :"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_category" />
+
+            <TextView
+                android:id="@+id/detail_partner_details"
+                style="@style/Regular12sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="21dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_id_toko"
+                app:layout_constraintTop_toTopOf="@+id/tv_details"
+                tools:text="Anggur dan Apel" />
+
+            <TextView
+                android:id="@+id/tv_scheduled"
+                style="@style/RegularGrey12sp"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="4dp"
+                android:text="Scheduled             :"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detail_partner_details" />
+
+            <TextView
+                android:id="@+id/detail_partner_scheduled"
+                style="@style/Regular12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@+id/tv_id_toko"
+                app:layout_constraintTop_toTopOf="@+id/tv_scheduled"
+                tools:text="01 June 2023" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                style="@style/RegularGrey12sp"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="52dp"
+                android:layout_marginBottom="20dp"
+                android:text="Status                    :"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_scheduled" />
+
+            <TextView
+                android:id="@+id/detail_partner_status"
+                style="@style/MediumWhite12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:background="@drawable/bg_status_complete"
+                app:layout_constraintStart_toEndOf="@+id/tv_id_toko"
+                app:layout_constraintTop_toTopOf="@+id/tv_status"
+                tools:text="DELIVERED" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img_partnerStore"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="18dp"
+        android:elevation="13dp"
+        android:background="@color/green"
+        android:scaleType="centerInside"
+        android:src="@drawable/store_transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:shapeAppearanceOverlay="@style/RoundedSquare10dp" />
+
+    <ImageView
+        android:id="@+id/danger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/danger"
+        android:layout_marginTop="21dp"
+        android:layout_marginStart="34dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+    <TextView
+        android:id="@+id/textView12"
+        style="@style/MediumDanger12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="This page can only be edited by admin\nbefore registration."
+        app:layout_constraintStart_toEndOf="@+id/danger"
+        app:layout_constraintTop_toTopOf="@+id/danger" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_change_status"
+        style="@style/MediumWhite16sp"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_button_started"
+        android:text="Change Status"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="54dp"
+        android:visibility="gone"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loadinglottie"
+        tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>
