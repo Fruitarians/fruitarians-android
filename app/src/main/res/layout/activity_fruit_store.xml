@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fruitstore.FruitStoreActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/toolbar_border"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            style="@style/SemiBold14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fruit Store"
+            android:layout_gravity="center" />
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="32dp"
+            android:background="@drawable/bg_button_back"
+            android:src="@drawable/btnback"
+            />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/img_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/location"
+        android:layout_marginTop="19dp"
+        android:layout_marginStart="26dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/tv_location"
+        style="@style/MediumGreen12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_location"
+        app:layout_constraintStart_toEndOf="@+id/img_location"
+        app:layout_constraintTop_toTopOf="@+id/img_location"
+        tools:text="Kec. Sleman, Yogyakarta" />
+
+    <TextView
+        android:id="@+id/title_far"
+        style="@style/Medium12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="Closest to you!"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_location" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardToko"
+        android:layout_width="330dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/green"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_far">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/image_toko"
+                android:layout_width="122dp"
+                android:layout_height="116dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="20dp"
+                android:padding="5dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/RoundedSquare"
+                app:strokeColor="@color/white"
+                app:strokeWidth="1.5dp"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/cardTitle"
+                style="@style/SemiBoldWhite16sp"
+                android:layout_width="130dp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="22dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Toko Pak Cecep" />
+
+            <TextView
+                android:id="@+id/textView9"
+                style="@style/MediumWhite12sp"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="2 km from you"
+                app:layout_constraintStart_toStartOf="@+id/cardTitle"
+                app:layout_constraintTop_toBottomOf="@+id/cardTitle" />
+
+            <ImageView
+                android:id="@+id/white_loc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/white_location"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+            <TextView
+                android:id="@+id/location_card"
+                style="@style/RegularWhite10sp"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                app:layout_constraintStart_toEndOf="@+id/white_loc"
+                app:layout_constraintTop_toTopOf="@+id/white_loc"
+                tools:text="Kec. Danurajen, Yogyakarta" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/title_far2"
+        style="@style/Medium12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="32dp"
+        android:text="Closest to you!"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardToko" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_fruit_store"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_far2"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/item_fruitstore" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieLoadingCard"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/cardToko"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_far"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loadinglottie"
+        tools:visibility="visible" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
