@@ -1,28 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/title_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/Regular20sp"
-        android:layout_marginTop="14dp"
-        android:layout_marginStart="30dp"
-        android:text="Good Morning,"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/title_myname"
-        style="@style/Medium20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/title_home"
-        app:layout_constraintTop_toBottomOf="@+id/title_home"
-        tools:text="Tafta Abqary" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+               <TextView
+                   android:id="@+id/title_home"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   style="@style/Regular20sp"
+                   android:layout_marginTop="14dp"
+                   android:layout_marginStart="30dp"
+                   android:text="Good Morning,"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent" />
+
+               <TextView
+                   android:id="@+id/title_myname"
+                   style="@style/Medium20sp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   app:layout_constraintStart_toStartOf="@+id/title_home"
+                   app:layout_constraintTop_toBottomOf="@+id/title_home"
+                   tools:text="Tafta Abqary" />
+
+               <include
+                   android:id="@+id/card_dashboard"
+                   layout="@layout/card_dashboard"
+                   android:layout_width="0dp"
+                   android:layout_height="120dp"
+                   android:layout_marginStart="32dp"
+                   android:layout_marginTop="32dp"
+                   android:layout_marginEnd="32dp"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/title_myname" />
+
+               <TextView
+                   android:id="@+id/textView3"
+                   style="@style/Medium16sp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="30dp"
+                   android:layout_marginTop="18dp"
+                   android:text="Features"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/card_dashboard" />
+
+               <ImageButton
+                   android:id="@+id/btn_fruit_store"
+                   android:layout_width="56dp"
+                   android:layout_height="56dp"
+                   android:layout_marginStart="32dp"
+                   android:layout_marginTop="16dp"
+                   android:background="@drawable/bg_features_shop"
+                   android:src="@drawable/bag2"
+                   app:circularflow_radiusInDP="8dp"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+               <TextView
+                   android:id="@+id/textView6"
+                   style="@style/Regular12sp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="8dp"
+                   android:text="Fruit Store"
+                   app:layout_constraintEnd_toEndOf="@+id/btn_fruit_store"
+                   app:layout_constraintStart_toStartOf="@+id/btn_fruit_store"
+                   app:layout_constraintTop_toBottomOf="@+id/btn_fruit_store" />
+
+               <ImageButton
+                   android:id="@+id/btn_memberships"
+                   android:layout_width="56dp"
+                   android:layout_height="56dp"
+                   android:background="@drawable/bg_features_memberships"
+                   android:src="@drawable/discountshape"
+                   android:layout_marginStart="35dp"
+                   app:circularflow_radiusInDP="8dp"
+                   app:layout_constraintStart_toEndOf="@+id/btn_fruit_store"
+                   app:layout_constraintTop_toTopOf="@+id/btn_fruit_store" />
+
+               <TextView
+                   android:id="@+id/textView4"
+                   style="@style/Regular12sp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="8dp"
+                   android:text="Memberships"
+                   app:layout_constraintEnd_toEndOf="@+id/btn_memberships"
+                   app:layout_constraintStart_toStartOf="@+id/btn_memberships"
+                   app:layout_constraintTop_toBottomOf="@+id/btn_memberships" />
+
+               <ImageButton
+                   android:id="@+id/btn_fruit_variant"
+                   android:layout_width="56dp"
+                   android:layout_height="56dp"
+                   android:background="@drawable/bg_features_fruit_variant"
+                   android:src="@drawable/shop"
+                   android:layout_marginStart="35dp"
+                   app:circularflow_radiusInDP="8dp"
+                   app:layout_constraintStart_toEndOf="@+id/btn_memberships"
+                   app:layout_constraintTop_toTopOf="@+id/btn_memberships" />
+
+               <TextView
+                   android:id="@+id/textView5"
+                   style="@style/Regular12sp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="8dp"
+                   android:text="Fruit Variant"
+                   app:layout_constraintEnd_toEndOf="@+id/btn_fruit_variant"
+                   app:layout_constraintStart_toStartOf="@+id/btn_fruit_variant"
+                   app:layout_constraintTop_toBottomOf="@+id/btn_fruit_variant" />
+
+               <ImageButton
+                   android:id="@+id/btn_articles"
+                   android:layout_width="56dp"
+                   android:layout_height="56dp"
+                   android:background="@drawable/bg_features_article"
+                   android:src="@drawable/calendar1"
+                   android:layout_marginStart="35dp"
+                   app:circularflow_radiusInDP="8dp"
+                   app:layout_constraintStart_toEndOf="@+id/btn_fruit_variant"
+                   app:layout_constraintTop_toTopOf="@+id/btn_fruit_variant" />
+
+               <TextView
+                   android:id="@+id/textView7"
+                   style="@style/Regular12sp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="8dp"
+                   android:text="Articles"
+                   app:layout_constraintEnd_toEndOf="@+id/btn_articles"
+                   app:layout_constraintStart_toStartOf="@+id/btn_articles"
+                   app:layout_constraintTop_toBottomOf="@+id/btn_articles" />
+
+               <TextView
+                   android:id="@+id/title_special_promo"
+                   style="@style/Medium16sp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="30dp"
+                   android:layout_marginTop="16dp"
+                   android:text="Special Promo"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+               <ImageView
+                   android:id="@+id/image_promo"
+                   android:layout_width="wrap_content"
+                   android:layout_height="89dp"
+                   android:layout_marginTop="12dp"
+                   android:src="@drawable/promo"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/title_special_promo" />
+
+               <ImageView
+                   android:id="@+id/divider"
+                   android:layout_width="0dp"
+                   android:layout_height="8dp"
+                   android:layout_marginTop="20dp"
+                   android:background="@drawable/bg_divider"
+                   android:backgroundTint="#F5F5F5"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/image_promo" />
+
+               <TextView
+                   android:id="@+id/recommendation"
+                   style="@style/Medium16sp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="30dp"
+                   android:layout_marginTop="16dp"
+                   android:text="Recommendation for you"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+               <androidx.recyclerview.widget.RecyclerView
+                   android:id="@+id/rv_recommendation"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="16dp"
+                   android:layout_marginBottom="32dp"
+                   android:orientation="horizontal"
+                   android:clipToPadding="false"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/recommendation" />
+       </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
