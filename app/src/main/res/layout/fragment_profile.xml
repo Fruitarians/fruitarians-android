@@ -1,50 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".ui.profile.ProfileFragment"
+    >
 
-    <TextView
-        android:id="@+id/text_profile"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="This is profile fragment"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_logout"
-        style="@style/MediumWhite16sp"
-        android:layout_width="0dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginEnd="34dp"
-        android:background="@drawable/bg_button_logout"
-        android:text="Logout"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_profile" />
+        <ImageView
+            android:id="@+id/bg_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/backgroundprofile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:progressBackgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/button_logout"
-        app:layout_constraintEnd_toEndOf="@+id/button_logout"
-        app:layout_constraintStart_toStartOf="@+id/button_logout"
-        app:layout_constraintTop_toTopOf="@+id/button_logout" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_mystore"
+            style="@style/MediumGreen14sp"
+            android:layout_width="132dp"
+            android:layout_height="35dp"
+            android:visibility="gone"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_my_store"
+            android:text="My Store"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_myvendor"
+            style="@style/MediumGreen14sp"
+            android:layout_width="132dp"
+            android:layout_height="35dp"
+            android:visibility="gone"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_my_store"
+            android:text="My Vendor"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profile"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:elevation="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/bg_profile"
+            app:layout_constraintEnd_toEndOf="@+id/bg_profile"
+            app:layout_constraintStart_toStartOf="@+id/bg_profile"
+            app:layout_constraintTop_toBottomOf="@+id/bg_profile"
+            android:src="@drawable/default_img_toko"
+            />
+
+        <TextView
+            android:id="@+id/name_profile"
+            style="@style/Medium14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/img_profile"
+            app:layout_constraintStart_toStartOf="@+id/img_profile"
+            app:layout_constraintTop_toBottomOf="@+id/img_profile"
+            tools:text="Toko Buah Pak Prabowo" />
+
+        <TextView
+            android:id="@+id/role_profile"
+            style="@style/MediumBlack5012sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="@+id/name_profile"
+            app:layout_constraintStart_toStartOf="@+id/name_profile"
+            app:layout_constraintTop_toBottomOf="@+id/name_profile"
+            tools:text="Seller" />
+
+        <TextView
+            android:id="@+id/textView11"
+            style="@style/Medium12sp"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/bg_acount_profile"
+            android:gravity="center|start"
+            android:paddingStart="16dp"
+            android:text="Account"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/role_profile" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_edit_profile"
+            style="@style/MediumBlack6012sp"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="47dp"
+            android:background="@drawable/bg_button_profile"
+            android:drawableEnd="@drawable/btnbackkanan"
+            android:text="Edit Profile"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_change_password"
+            style="@style/MediumBlack6012sp"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="47dp"
+            android:background="@drawable/bg_button_profile"
+            android:drawableEnd="@drawable/btnbackkanan"
+            android:text="Change Password"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_edit_profile" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_language"
+            style="@style/MediumBlack6012sp"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="47dp"
+            android:background="@drawable/bg_button_profile"
+            android:drawableEnd="@drawable/btnbackkanan"
+            android:text="Language"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_change_password" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_logout"
+            style="@style/MediumWhite16sp"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="96dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="96dp"
+            android:background="@drawable/bg_button_logout"
+            android:text="Logout"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_language" />
+
+        <TextView
+            style="@style/MediumGray12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:layout_marginTop="16dp"
+            android:text="Version 1.0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/button_logout"
+            app:layout_constraintStart_toStartOf="@+id/button_logout"
+            app:layout_constraintTop_toBottomOf="@+id/button_logout" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:visibility="gone"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:indeterminateTint="@color/green"
+            app:layout_constraintBottom_toBottomOf="@+id/button_logout"
+            app:layout_constraintEnd_toEndOf="@+id/button_logout"
+            app:layout_constraintStart_toStartOf="@+id/button_logout"
+            app:layout_constraintTop_toTopOf="@+id/button_logout" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="54dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_profile"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loadinglottie"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
