@@ -133,7 +133,7 @@ class RegisterActivity : AppCompatActivity() {
         binding.headerTextRegister.text = spannableStringHeader
 
         val items = listOf("Buyer", "Seller", "Vendor")
-        val adapter = ArrayAdapter(this, R.layout.list_items, items)
+        val adapter = ArrayAdapter(this, R.layout.list_select, items)
         (binding.autoCompleteTextRole as? AutoCompleteTextView)?.setAdapter(adapter)
     }
 
