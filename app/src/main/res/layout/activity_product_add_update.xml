@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.product.ProductAddUpdateActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/toolbar_border"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                style="@style/SemiBold14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add new product"
+                android:layout_gravity="center" />
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/bg_button_back"
+                android:src="@drawable/btnback"/>
+
+            <ImageButton
+                android:id="@+id/btn_delete"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="32dp"
+                android:visibility="gone"
+                android:background="@drawable/bg_button_back"
+                android:src="@drawable/material_symbols_delete"/>
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/upload_photo_product"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="32dp"
+            android:background="@drawable/bg_upload_photo"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="22dp"
+            android:padding="4dp"
+            android:src="@drawable/paper_upload"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+
+        <TextView
+            android:id="@+id/tv_upload"
+            style="@style/RegularGrey12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add photo"
+            android:layout_marginTop="52dp"
+            app:layout_constraintBottom_toBottomOf="@+id/upload_photo_product"
+            app:layout_constraintEnd_toEndOf="@+id/upload_photo_product"
+            app:layout_constraintStart_toStartOf="@+id/upload_photo_product"
+            app:layout_constraintTop_toTopOf="@+id/upload_photo_product" />
+
+        <TextView
+            android:id="@+id/title_name"
+            style="@style/Medium12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:text="Name"
+            app:layout_constraintStart_toStartOf="@+id/upload_photo_product"
+            app:layout_constraintTop_toBottomOf="@+id/upload_photo_product" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/CustomOutlinedBox2"
+            android:id="@+id/ed_product_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="34dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_name"
+            app:layout_constraintTop_toBottomOf="@+id/title_name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/Regular12sp"
+                android:id="@+id/input_product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Product name"
+                android:inputType="textEmailAddress"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_description"
+            style="@style/Medium12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Description"
+            app:layout_constraintStart_toStartOf="@+id/ed_product_name"
+            app:layout_constraintTop_toBottomOf="@+id/ed_product_name" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ed_product_desc"
+            style="@style/CustomOutlinedBox2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="34dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_description"
+            app:layout_constraintTop_toBottomOf="@+id/title_description">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_product_desc"
+                style="@style/Regular12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Description"
+                android:inputType="textEmailAddress"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_stock"
+            style="@style/Medium12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Stock"
+            app:layout_constraintStart_toStartOf="@+id/ed_product_desc"
+            app:layout_constraintTop_toBottomOf="@+id/ed_product_desc" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ed_product_stock"
+            style="@style/CustomOutlinedBox2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="34dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_stock"
+            app:layout_constraintTop_toBottomOf="@+id/title_stock">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_product_stock"
+                style="@style/Regular12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Stock"
+                android:inputType="number"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_price"
+            style="@style/Medium12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Price"
+            app:layout_constraintStart_toStartOf="@+id/ed_product_stock"
+            app:layout_constraintTop_toBottomOf="@+id/ed_product_stock" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ed_product_price"
+            style="@style/CustomOutlinedBox2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="34dp"
+            app:helperTextEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_price"
+            app:layout_constraintTop_toBottomOf="@+id/title_price"
+            app:prefixText="Rp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_product_price"
+                style="@style/Regular12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Price"
+                android:inputType="number"
+                android:maxLines="1"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_unit"
+            style="@style/Medium12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Unit"
+            app:layout_constraintStart_toStartOf="@+id/ed_product_price"
+            app:layout_constraintTop_toBottomOf="@+id/ed_product_price" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ed_add_unit"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="230dp"
+            app:boxBackgroundColor="@color/white"
+            android:hint="Unit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_unit"
+            app:layout_constraintTop_toBottomOf="@+id/title_unit">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextUnit"
+                style="@style/Regular12sp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:inputType="none"
+                android:labelFor="@+id/ed_edit_state"
+                android:maxLines="1"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_add_new_product"
+            style="@style/MediumWhite16sp"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/bg_button_started"
+            android:text="Add new product"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_add_unit" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="54dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/ed_add_unit"
+            app:layout_constraintVertical_bias="0.045"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loadinglottie"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
