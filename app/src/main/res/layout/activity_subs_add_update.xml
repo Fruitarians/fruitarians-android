@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.myvendor.SubsAddUpdateActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/toolbar_border"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                style="@style/SemiBold14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Vendor Partner"
+                android:layout_gravity="center" />
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="32dp"
+                android:background="@drawable/bg_button_back"
+                android:src="@drawable/btnback"/>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/iconamoon_notification_fill"
+                android:background="@color/white"
+                android:layout_gravity="end"
+                android:layout_marginEnd="32dp"
+                />
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/title_partner_name"
+            style="@style/Medium12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_marginStart="32dp"
+            android:text="Fruit Store Name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/CustomOutlinedBox2"
+            android:id="@+id/ed_partner_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="34dp"
+            android:layout_marginTop="4dp"
+            android:hint="Fruit Store Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_partner_name"
+            app:layout_constraintTop_toBottomOf="@+id/title_partner_name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/Regular12sp"
+                android:id="@+id/input_partner_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_partner_owner"
+            style="@style/Medium12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Owner"
+            app:layout_constraintStart_toStartOf="@+id/ed_partner_name"
+            app:layout_constraintTop_toBottomOf="@+id/ed_partner_name" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ed_partner_owner"
+            style="@style/CustomOutlinedBox2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="34dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_partner_owner"
+            app:layout_constraintTop_toBottomOf="@+id/title_partner_owner">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_partner_owner"
+                style="@style/Regular12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Owner"
+                android:inputType="textEmailAddress"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_partner_address"
+            style="@style/Medium12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Address"
+            app:layout_constraintStart_toStartOf="@+id/ed_partner_owner"
+            app:layout_constraintTop_toBottomOf="@+id/ed_partner_owner" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ed_partner_address"
+            style="@style/CustomOutlinedBox2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="34dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_partner_address"
+            app:layout_constraintTop_toBottomOf="@+id/title_partner_address">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_partner_address"
+                style="@style/Regular12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Address"
+                android:inputType="textEmailAddress"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_partner_telepon"
+            style="@style/Medium12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="No Handphone"
+            app:layout_constraintStart_toStartOf="@+id/ed_partner_address"
+            app:layout_constraintTop_toBottomOf="@+id/ed_partner_address" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ed_partner_telepon"
+            style="@style/CustomOutlinedBox2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="34dp"
+            app:prefixText="+62"
+            android:hint="No Handphone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_partner_telepon"
+            app:layout_constraintTop_toBottomOf="@+id/title_partner_telepon">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_partner_telepon"
+                style="@style/Regular12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/title_partner_category"
+            style="@style/Medium12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Category"
+            app:layout_constraintStart_toStartOf="@+id/ed_partner_telepon"
+            app:layout_constraintTop_toBottomOf="@+id/ed_partner_telepon" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ed_partner_category"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="34dp"
+            android:layout_marginTop="4dp"
+            android:hint="Category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_partner_category"
+            app:layout_constraintTop_toBottomOf="@+id/title_partner_category">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextCategory"
+                style="@style/Regular12sp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="none"
+                android:labelFor="@+id/ed_partner_category"
+                android:maxLines="1"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_partner_schedule"
+            style="@style/Medium12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Schedule"
+            app:layout_constraintStart_toStartOf="@+id/ed_partner_category"
+            app:layout_constraintTop_toBottomOf="@+id/ed_partner_category" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ed_partner_schedule"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="34dp"
+            app:endIconMode="custom"
+            app:endIconContentDescription="Icon Calender"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_partner_schedule"
+            app:layout_constraintTop_toBottomOf="@id/title_partner_schedule">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_partner_schedule"
+                style="@style/Regular12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Schedule"
+                android:inputType="date"
+                android:maxLines="1"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_partner_detail"
+            style="@style/Medium12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Detail"
+            app:layout_constraintStart_toStartOf="@+id/ed_partner_schedule"
+            app:layout_constraintTop_toBottomOf="@+id/ed_partner_schedule" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ed_partner_detail"
+            style="@style/CustomOutlinedBox2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="34dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_partner_detail"
+            app:layout_constraintTop_toBottomOf="@+id/title_partner_detail">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_partner_detail"
+                style="@style/Regular12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Detail"
+                android:inputType="text"
+                android:maxLines="1"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_add_new_partner"
+            style="@style/MediumWhite16sp"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="43dp"
+            android:layout_marginBottom="43dp"
+            android:background="@drawable/bg_button_started"
+            android:text="Add New Partner"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_partner_detail" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="54dp"
+            android:visibility="gone"
+            android:layout_marginBottom="43dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_partner_detail"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loadinglottie"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>
