@@ -40,4 +40,22 @@
     <string name="token_have">Already have a token?</string>
     <string name="token">token</string>
     <string name="myname">%1$s</string>
+    <string name="price">Rp%d</string>
+    <string name="stock">Stock %d</string>
+    <string name="created">Joined %1$s</string>
+    <string name="tab_text_1">Detail</string>
+    <string name="tab_text_2">Buah</string>
+    <string name="title_activity_scan">ScanActivity</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="scan_text">Insert an image via gallery or camera, click Scan to detect the freshness of the fruit.</string>
+    <string name="scan_result">Result :\n%1$s\n%2$s</string>
+    <string name="creator">Author\n%1$s</string>
+    <string name="dated">Released Date\n%1$s</string>
+    <string name="open_hari">%1$s – %2$s</string>
+    <string name="open_jam">%1$s – %2$s</string>
+    <string name="unit">/%1$s</string>
+
 </resources>
