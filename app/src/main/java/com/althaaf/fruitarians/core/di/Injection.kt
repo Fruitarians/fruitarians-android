@@ -6,7 +6,10 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.althaaf.fruitarians.core.data.local.datastore.UserPreference
 import com.althaaf.fruitarians.core.data.network.authentication.AuthRepository
-import com.althaaf.fruitarians.core.data.network.home.HomeRepository
+import com.althaaf.fruitarians.core.data.network.dashboard.DashboardRepository
+import com.althaaf.fruitarians.core.data.network.fruitscan.FruitScanRepository
+import com.althaaf.fruitarians.core.data.network.profile.MyStoreRepository
+import com.althaaf.fruitarians.core.data.network.profile.MyVendorRepository
 import com.althaaf.fruitarians.core.data.network.profile.ProfileRepository
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiConfig
 
@@ -20,16 +23,33 @@ object Injection {
         return AuthRepository.getInstance(apiService, dataStore)
     }
 
-    fun provideHomeRepository(context: Context): HomeRepository {
+    fun provideFruitScanRepository(): FruitScanRepository {
+        val apiService = ApiConfig.getApiServiceScan()
+        return FruitScanRepository.getInstance(apiService)
+    }
+
+    fun provideHomeRepository(context: Context): DashboardRepository {
         val apiService = ApiConfig.getApiService()
         val dataStore = UserPreference.getInstance(context.dataStore)
-        return HomeRepository.getInstance(apiService, dataStore)
+        return DashboardRepository.getInstance(apiService, dataStore)
     }
 
     fun provideProfileRepository(context: Context): ProfileRepository {
         val apiService = ApiConfig.getApiService()
         val dataStore = UserPreference.getInstance(context.dataStore)
         return ProfileRepository.getInstance(apiService, dataStore)
+    }
+
+    fun provideMyStoreRepository(context: Context): MyStoreRepository {
+        val apiService = ApiConfig.getApiService()
+        val dataStore = UserPreference.getInstance(context.dataStore)
+        return MyStoreRepository.getInstance(apiService, dataStore)
+    }
+
+    fun provideMyVendorRepository(context: Context): MyVendorRepository {
+        val apiService = ApiConfig.getApiService()
+        val dataStore = UserPreference.getInstance(context.dataStore)
+        return MyVendorRepository.getInstance(apiService, dataStore)
     }
 
     fun provideDataStore(context: Context): UserPreference {
