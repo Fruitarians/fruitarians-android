@@ -9,18 +9,104 @@
         android:id="@+id/navigation_home"
         android:name="com.althaaf.fruitarians.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_fruitStoreActivity"
+            app:destination="@id/fruitStoreActivity" />
+        <action
+            android:id="@+id/action_navigation_home_to_articleActivity"
+            app:destination="@id/articleActivity" />
+        <action
+            android:id="@+id/action_navigation_home_to_fruitVariantActivity"
+            app:destination="@id/fruitVariantActivity" />
+        <action
+            android:id="@+id/action_navigation_home_to_membershipActivity"
+            app:destination="@id/membershipActivity" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.althaaf.fruitarians.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+
+        <action
+            android:id="@+id/action_navigation_profile_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_navigation_profile_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_navigation_profile_to_myStoreActivity"
+            app:destination="@id/myStoreActivity" />
+        <action
+            android:id="@+id/action_navigation_profile_to_myVendorActivity"
+            app:destination="@id/myVendorActivity" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_scan"
         android:name="com.althaaf.fruitarians.ui.scan.ScanFragment"
         android:label="@string/title_scan"
-        tools:layout="@layout/fragment_scan" />
+        tools:layout="@layout/fragment_scan" >
+        <action
+            android:id="@+id/action_navigation_scan_to_fruitScanActivity"
+            app:destination="@id/fruitScanActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/fruitStoreActivity"
+        android:name="com.althaaf.fruitarians.ui.fruitstore.FruitStoreActivity"
+        android:label="activity_fruit_store"
+        tools:layout="@layout/activity_fruit_store" />
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.althaaf.fruitarians.ui.edit_profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" >
+        <argument
+            android:name="detailUser"
+            app:argType="com.althaaf.fruitarians.core.data.network.dashboard.Data" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.althaaf.fruitarians.ui.changepassword.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" >
+        <argument
+            android:name="userImage"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <activity
+        android:id="@+id/fruitScanActivity"
+        android:name="com.althaaf.fruitarians.ui.fruitscan.FruitScanActivity"
+        android:label="activity_fruit_scan"
+        tools:layout="@layout/activity_fruit_scan" />
+    <activity
+        android:id="@+id/myStoreActivity"
+        android:name="com.althaaf.fruitarians.ui.mystore.MyStoreActivity"
+        android:label="activity_my_store"
+        tools:layout="@layout/activity_my_store" />
+    <activity
+        android:id="@+id/articleActivity"
+        android:name="com.althaaf.fruitarians.ui.article.ArticleActivity"
+        android:label="activity_article"
+        tools:layout="@layout/activity_article" />
+    <activity
+        android:id="@+id/fruitVariantActivity"
+        android:name="com.althaaf.fruitarians.ui.fruitvariant.FruitVariantActivity"
+        android:label="activity_fruit_variant"
+        tools:layout="@layout/activity_fruit_variant" />
+    <activity
+        android:id="@+id/myVendorActivity"
+        android:name="com.althaaf.fruitarians.ui.myvendor.MyVendorActivity"
+        android:label="activity_my_vendor"
+        tools:layout="@layout/activity_my_vendor" />
+    <activity
+        android:id="@+id/membershipActivity"
+        android:name="com.althaaf.fruitarians.ui.membership.MembershipActivity"
+        android:label="activity_membership"
+        tools:layout="@layout/activity_membership" />
 
 </navigation>
