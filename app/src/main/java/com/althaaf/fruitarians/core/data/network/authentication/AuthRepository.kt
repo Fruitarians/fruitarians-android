@@ -71,7 +71,8 @@ class AuthRepository(
                                 accessToken = response.data.accessToken,
                                 tokenType = response.data.tokenType,
                                 email = response.data.email,
-                                name = response.data.name
+                                name = response.data.name,
+                                role = response.data.role
                             )
                         )
                     }
