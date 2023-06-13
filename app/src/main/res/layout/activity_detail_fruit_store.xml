@@ -58,8 +58,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toStartOf="@+id/btn_add_membership"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/profile_detail"
                 app:layout_constraintTop_toTopOf="@+id/profile_detail"
                 tools:text="Toko Pak Prabowo" />
@@ -98,27 +98,29 @@
                 tools:text="@string/created" />
 
             <androidx.appcompat.widget.AppCompatButton
-                style="@style/RegularGrey12sp"
                 android:id="@+id/btn_add_membership"
+                style="@style/RegularWhite12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="32dp"
                 android:background="@drawable/bg_btn_no_membership"
+                android:drawablePadding="-10dp"
                 android:includeFontPadding="false"
-                android:text="Follow  +"
+                android:paddingEnd="9dp"
+                android:text="Follow"
                 android:textAllCaps="false"
-                app:layout_constraintBottom_toBottomOf="@+id/detail_nama_toko"
+                app:layout_constraintBottom_toBottomOf="@+id/detail_created_toko"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/detail_nama_toko" />
+                app:layout_constraintVertical_bias="0.4" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
-        style="@style/CustomTabLayout"
         android:layout_width="0dp"
+        app:tabSelectedTextColor="@color/green"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        app:tabTextAppearance="@style/CustomTabLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarDetail" />
