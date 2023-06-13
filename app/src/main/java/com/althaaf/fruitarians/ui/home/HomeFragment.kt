@@ -1,9 +1,10 @@
 package com.althaaf.fruitarians.ui.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import android.view.*
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -20,6 +21,7 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private lateinit var roleUser: String
 
     private lateinit var homeViewModel: HomeViewModel
 
@@ -34,6 +36,10 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val window: Window? = activity?.window
+        window?.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.white)
+
         setupViewModel()
         setupRecyclerView()
         setupView()
@@ -46,9 +52,13 @@ class HomeFragment : Fragment() {
             view?.findNavController()?.navigate(toFruitStoreActivity)
         }
 
-        binding.btnMemberships.setOnClickListener {view ->
-            val toMembershipActivity = HomeFragmentDirections.actionNavigationHomeToMembershipActivity()
-            view?.findNavController()?.navigate(toMembershipActivity)
+        binding.btnMemberships.setOnClickListener { view ->
+            if (roleUser != "user") {
+                showToast()
+            } else {
+                val toMembershipActivity = HomeFragmentDirections.actionNavigationHomeToMembershipActivity()
+                view?.findNavController()?.navigate(toMembershipActivity)
+            }
         }
 
         binding.btnArticles.setOnClickListener { view ->
@@ -60,6 +70,10 @@ class HomeFragment : Fragment() {
             val toFruitVariantActivity = HomeFragmentDirections.actionNavigationHomeToFruitVariantActivity()
             view.findNavController().navigate(toFruitVariantActivity)
         }
+    }
+
+    private fun showToast() {
+        Toast.makeText(requireActivity(), "This Feature Ony For User !", Toast.LENGTH_SHORT).show()
     }
 
     private fun setupRecyclerView() {
@@ -76,6 +90,8 @@ class HomeFragment : Fragment() {
     private fun setupView() {
         homeViewModel.getUserSession().observe(requireActivity()) {
             binding.titleMyname.text = getString(R.string.myname, it.name)
+            roleUser = it.role
+            Log.d("Role USER:", it.role)
         }
     }
 
