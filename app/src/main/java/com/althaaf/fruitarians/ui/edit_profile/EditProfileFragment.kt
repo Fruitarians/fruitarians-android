@@ -5,10 +5,8 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
@@ -53,6 +51,10 @@ class EditProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val window: Window? = activity?.window
+        window?.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.green)
 
         setupViewModel()
         setupData()
@@ -219,6 +221,9 @@ class EditProfileFragment : Fragment() {
                     edEditEndDay.visibility = View.GONE
                     edEditTimeStart.visibility = View.GONE
                     edEditTimeEnd.visibility = View.GONE
+                    textView8.visibility = View.GONE
+                    textView9.visibility = View.GONE
+                    btnChangeImg.visibility = View.GONE
 
                     edEditName.setText(user.name)
                     edEditTelepon.setText(user.telepon)
@@ -231,7 +236,7 @@ class EditProfileFragment : Fragment() {
                             R.drawable.default_user_biasa
                         )
                     )
-                    binding.imgProfile.elevation = 6F
+                    binding.imgProfile.elevation = 0F
                 }
             } else {
                 binding.apply {
