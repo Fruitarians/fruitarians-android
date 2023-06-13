@@ -46,33 +46,42 @@
         </androidx.appcompat.widget.Toolbar>
 
 
-        <FrameLayout
-            android:id="@+id/frame"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_profile"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:elevation="4dp"
             app:layout_constraintBottom_toBottomOf="@+id/bg_profile"
             app:layout_constraintEnd_toEndOf="@+id/bg_profile"
             app:layout_constraintStart_toStartOf="@+id/bg_profile"
             app:layout_constraintTop_toBottomOf="@+id/bg_profile"
-            >
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img_profile"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:elevation="4dp"
-                tools:src="@drawable/default_img_toko" />
-        </FrameLayout>
+            tools:src="@drawable/default_img_toko" />
 
         <ImageButton
             android:id="@+id/btn_change_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-16dp"
+            android:layout_marginTop="36dp"
             android:backgroundTint="@color/green"
+            android:elevation="6dp"
             android:src="@drawable/mdi_pencil"
-            app:layout_constraintEnd_toEndOf="@+id/frame"
-            app:layout_constraintStart_toStartOf="@+id/frame"
-            app:layout_constraintTop_toBottomOf="@+id/frame" />
+            app:layout_constraintEnd_toEndOf="@+id/img_profile"
+            app:layout_constraintHorizontal_bias="0.858"
+            app:layout_constraintStart_toStartOf="@+id/img_profile"
+            app:layout_constraintTop_toBottomOf="@+id/bg_profile" />
+
+        <TextView
+            android:id="@+id/tv_email"
+            style="@style/Regular12sp"
+            android:padding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_button_logout"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/img_profile"
+            app:layout_constraintStart_toStartOf="@+id/img_profile"
+            app:layout_constraintTop_toBottomOf="@+id/img_profile"
+            tools:text="muhammad.abqary@mhs.unsoed.ac.id" />
 
         <TextView
             android:id="@+id/title_edit_name"
@@ -80,10 +89,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="46dp"
+            android:layout_marginTop="16dp"
             android:text="Name"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/frame" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_email" />
 
         <EditText
             android:id="@+id/ed_edit_name"
