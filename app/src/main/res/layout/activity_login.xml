@@ -96,25 +96,15 @@
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <CheckBox
-        android:id="@+id/remember_me"
-        style="@style/MediumGray12sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/remember_me"
-        app:layout_constraintStart_toStartOf="@+id/ed_login_password"
-        app:layout_constraintTop_toBottomOf="@+id/ed_login_password" />
-
     <TextView
         android:id="@+id/forget_password"
         style="@style/MediumGray12sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="Forgot Password?"
-        app:layout_constraintBottom_toBottomOf="@+id/remember_me"
         app:layout_constraintEnd_toEndOf="@+id/ed_login_password"
-        app:layout_constraintTop_toTopOf="@+id/remember_me" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_login_password" />
 
     <Button
         android:id="@+id/button_login"
@@ -122,29 +112,29 @@
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="34dp"
         android:background="@drawable/bg_button_login"
         android:text="Login"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/remember_me" />
+        app:layout_constraintTop_toBottomOf="@+id/forget_password" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieLoading"
         android:layout_width="wrap_content"
         android:layout_height="54dp"
         android:visibility="gone"
-        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/remember_me"
+        app:layout_constraintTop_toBottomOf="@+id/forget_password"
         app:lottie_autoPlay="true"
-        tools:visibility="visible"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/loadinglottie"
-        />
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/tv_signup"
@@ -152,9 +142,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
-        app:layout_constraintEnd_toEndOf="@+id/button_login"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/button_login"
-        app:layout_constraintTop_toBottomOf="@+id/remember_me"
+        app:layout_constraintTop_toBottomOf="@+id/forget_password"
         tools:text="@string/tv_signup" />
 
 
