@@ -2,6 +2,7 @@ package com.althaaf.fruitarians.ui.detailfruitstore
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Binder
 import android.os.Build
 import android.os.Build.VERSION_CODES.P
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,7 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat.setPaddingRelative
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.althaaf.fruitarians.R
@@ -50,14 +52,17 @@ class DetailFruitStoreActivity : AppCompatActivity() {
                     is ApiResult.Success -> {
                        if (response.data.data.bookmarked) {
                            isMembership = true
-                           binding.btnAddMembership.background = ContextCompat.getDrawable(this, R.drawable.bg_btn_membership)
-                           binding.btnAddMembership.setTextAppearance(R.style.RegularWhite12sp)
-                           binding.btnAddMembership.text = "Membership  √"
+                           binding.btnAddMembership.text = "Membership"
+                           binding.btnAddMembership.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0)
+                           val newPaddingEnd = resources.getDimensionPixelSize(R.dimen.new_padding_end2)
+                           binding.btnAddMembership.setPaddingRelative(binding.btnAddMembership.paddingStart, binding.btnAddMembership.paddingTop, newPaddingEnd, binding.btnAddMembership.paddingBottom)
                        } else {
                            isMembership = false
-                           binding.btnAddMembership.background = ContextCompat.getDrawable(this, R.drawable.bg_btn_no_membership)
-                           binding.btnAddMembership.setTextAppearance(R.style.RegularGrey12sp)
-                           binding.btnAddMembership.text = "Follow  +"
+                           val iconFollow = ContextCompat.getDrawable(this, R.drawable.ic_plus)
+                           binding.btnAddMembership.setCompoundDrawablesWithIntrinsicBounds(null, null, iconFollow, null)
+                           val newPaddingEnd = resources.getDimensionPixelSize(R.dimen.new_padding_end)
+                           binding.btnAddMembership.setPaddingRelative(binding.btnAddMembership.paddingStart, binding.btnAddMembership.paddingTop, newPaddingEnd, binding.btnAddMembership.paddingBottom)
+                           binding.btnAddMembership.text = "Follow"
                        }
                     }
 
@@ -102,6 +107,7 @@ class DetailFruitStoreActivity : AppCompatActivity() {
             setMessage(message)
             setCancelable(false)
             setPositiveButton("Yes") { _, _ ->
+                addStateButton()
                 addMembership()
             }
             setNegativeButton("No") { dialog, _ -> dialog.cancel()}
@@ -109,6 +115,13 @@ class DetailFruitStoreActivity : AppCompatActivity() {
 
         val alertDialog = alertDialogBuilder.create()
         alertDialog.show()
+    }
+
+    private fun addStateButton() {
+        binding.btnAddMembership.text = "Membership"
+        binding.btnAddMembership.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0)
+        val newPaddingEnd = resources.getDimensionPixelSize(R.dimen.new_padding_end2)
+        binding.btnAddMembership.setPaddingRelative(binding.btnAddMembership.paddingStart, binding.btnAddMembership.paddingTop, newPaddingEnd, binding.btnAddMembership.paddingBottom)
     }
 
     private fun addMembership() {
@@ -119,9 +132,6 @@ class DetailFruitStoreActivity : AppCompatActivity() {
 
                     is ApiResult.Success -> {
                         isMembership = true
-                        binding.btnAddMembership.background = ContextCompat.getDrawable(this, R.drawable.bg_btn_membership)
-                        binding.btnAddMembership.setTextAppearance(R.style.RegularWhite12sp)
-                        binding.btnAddMembership.text = "Membership  √"
                         Toast.makeText(this, response.data.message, Toast.LENGTH_SHORT).show()
                     }
 
@@ -148,6 +158,7 @@ class DetailFruitStoreActivity : AppCompatActivity() {
             setMessage(message)
             setCancelable(false)
             setPositiveButton("Yes") { _, _ ->
+                stateButtonCancel()
                 cancelMembership()
             }
             setNegativeButton("No") { dialog, _ -> dialog.cancel()}
@@ -155,6 +166,14 @@ class DetailFruitStoreActivity : AppCompatActivity() {
 
         val alertDialog = alertDialogBuilder.create()
         alertDialog.show()
+    }
+
+    private fun stateButtonCancel() {
+        val iconFollow = ContextCompat.getDrawable(this, R.drawable.ic_plus)
+        binding.btnAddMembership.setCompoundDrawablesWithIntrinsicBounds(null, null, iconFollow, null)
+        val newPaddingEnd = resources.getDimensionPixelSize(R.dimen.new_padding_end)
+        binding.btnAddMembership.setPaddingRelative(binding.btnAddMembership.paddingStart, binding.btnAddMembership.paddingTop, newPaddingEnd, binding.btnAddMembership.paddingBottom)
+        binding.btnAddMembership.text = "Follow"
     }
 
     private fun cancelMembership() {
@@ -165,9 +184,6 @@ class DetailFruitStoreActivity : AppCompatActivity() {
 
                     is ApiResult.Success -> {
                         isMembership = false
-                        binding.btnAddMembership.background = ContextCompat.getDrawable(this, R.drawable.bg_btn_no_membership)
-                        binding.btnAddMembership.setTextAppearance(R.style.RegularGrey12sp)
-                        binding.btnAddMembership.text = "Follow  √"
                         Toast.makeText(this, response.data.message, Toast.LENGTH_SHORT).show()
                     }
 
