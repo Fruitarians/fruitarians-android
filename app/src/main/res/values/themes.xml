@@ -41,7 +41,7 @@
         <item name="android:statusBarColor">@color/green</item>
     </style>
 
-    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
+    <style name="CustomTabLayout" parent="TextAppearance.Design.Tab">
         <item name="textAllCaps">false</item>
         <item name="fontFamily">@font/poppins_regular</item>
     </style>
@@ -110,6 +110,12 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/poppins_regular</item>
         <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="RegularWhite8sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">8sp</item>
     </style>
 
     <style name="Regular10sp" parent="TextAppearance.AppCompat">
