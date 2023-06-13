@@ -1,18 +1,25 @@
 package com.althaaf.fruitarians.ui.fruitscan
 
 import android.Manifest
+import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.graphics.Camera
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.Window
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
@@ -26,6 +33,7 @@ import com.althaaf.fruitarians.core.helper.reduceFileImage
 import com.althaaf.fruitarians.core.helper.rotateFile
 import com.althaaf.fruitarians.core.helper.uriToFile
 import com.althaaf.fruitarians.databinding.ActivityFruitScanBinding
+import com.althaaf.fruitarians.databinding.DialogScanBinding
 import com.althaaf.fruitarians.ui.product.ProductAddUpdateActivity
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -37,7 +45,6 @@ class FruitScanActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFruitScanBinding
     private lateinit var fruitScanViewModel: FruitScanViewModel
     private var getFile: File? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -155,28 +162,118 @@ class FruitScanActivity : AppCompatActivity() {
                     is ApiResult.Loading -> {
                         binding.lottieLoading.visibility = View.VISIBLE
                         binding.btnUploadScan.visibility = View.GONE
-                        binding.resultScan.visibility = View.GONE
                     }
 
                     is ApiResult.Success -> {
                         binding.lottieLoading.visibility = View.GONE
                         binding.btnUploadScan.visibility = View.VISIBLE
-                        binding.resultScan.visibility = View.VISIBLE
-                        binding.resultScan.text = getString(R.string.scan_result, response.data.modelPrediction, response.data.modelPredictionConfidenceScore)
+                        showDialogResult(response.data.modelPrediction, response.data.modelPredictionConfidenceScore.toString())
                     }
 
                     is ApiResult.Error -> {
                         binding.lottieLoading.visibility = View.GONE
                         binding.btnUploadScan.visibility = View.VISIBLE
                         Toast.makeText(this, response.error, Toast.LENGTH_SHORT).show()
-                        binding.resultScan.visibility = View.VISIBLE
-                        binding.resultScan.text = response.error
                         Log.d(TAG, response.error)
                     }
                     else -> {
                         Toast.makeText(this, "Failed, try again", Toast.LENGTH_SHORT).show()
                     }
                 }
+            }
+        }
+    }
+
+    private fun showDialogResult(modelPrediction: String, modelPredictionConfidenceScore: String) {
+        val context: Context = this
+        val dialog = Dialog(this)
+        dialog.apply {
+            requestWindowFeature(Window.FEATURE_NO_TITLE)
+            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            setCancelable(true)
+            val dialogBinding = DialogScanBinding.inflate(LayoutInflater.from(context))
+            setContentView(dialogBinding.root)
+
+            var emotSelect = -1
+
+            with(dialogBinding) {
+                resultFresh.text = modelPrediction
+                resultAccuration.text = modelPredictionConfidenceScore
+
+                sadFace.setOnClickListener {
+                    emotSelect = 0
+                    setSadImageState(sadFace, neutralFace, happyFace)
+                    setTextColor(tvBad, tvNeutral, tvHappy)
+                }
+
+                neutralFace.setOnClickListener {
+                    emotSelect = 50
+                    setNeutralImageState(neutralFace, sadFace, happyFace)
+                    setTextColor(tvNeutral, tvBad, tvHappy)
+                }
+
+                happyFace.setOnClickListener {
+                    emotSelect = 100
+                    setHappyImageState(happyFace, neutralFace, sadFace)
+                    setTextColor(tvHappy, tvNeutral, tvBad)
+                }
+
+                btnSubmitEmot.setOnClickListener {
+                    if (emotSelect == 0) {
+                        showToast("Thank you for the feedback, we will increase our accuracy again")
+                        dismiss()
+                    } else if (emotSelect == 50) {
+                        showToast("Thank you for the feedback")
+                        dismiss()
+                    } else {
+                        showToast("Thank you for the feedback, Good to know")
+                        dismiss()
+                    }
+                }
+            }
+
+            show()
+        }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun setNeutralImageState(neutralFace: ImageView, sadFace: ImageView, happyFace: ImageView) {
+        sadFace.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.face_sad))
+        neutralFace.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.neutral_face_full))
+        happyFace.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.happy_face))
+    }
+
+    private fun setHappyImageState(happyFace: ImageView, neutralFace: ImageView, sadFace: ImageView) {
+        sadFace.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.face_sad))
+        neutralFace.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.face_neutral))
+        happyFace.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.happy_face_full))
+    }
+
+    private fun setSadImageState(sadFace: ImageView, neutralFace: ImageView, happyFace: ImageView) {
+        sadFace.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.sad_face_full))
+        neutralFace.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.face_neutral))
+        happyFace.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.happy_face))
+    }
+
+
+    private fun setTextColor(selectedText: TextView, vararg otherTexts: TextView) {
+        if (selectedText.text == "Bad") {
+            selectedText.setTextColor(ContextCompat.getColor(this, R.color.red))
+            otherTexts.forEach { otherText ->
+                otherText.setTextColor(ContextCompat.getColor(this, R.color.black))
+            }
+        } else if (selectedText.text == "Neutral") {
+            selectedText.setTextColor(ContextCompat.getColor(this, R.color.gray))
+            otherTexts.forEach { otherText ->
+                otherText.setTextColor(ContextCompat.getColor(this, R.color.black))
+            }
+        } else {
+            selectedText.setTextColor(ContextCompat.getColor(this, R.color.green))
+            otherTexts.forEach { otherText ->
+                otherText.setTextColor(ContextCompat.getColor(this, R.color.black))
             }
         }
     }
