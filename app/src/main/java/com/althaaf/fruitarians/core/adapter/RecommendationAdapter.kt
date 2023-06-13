@@ -1,10 +1,12 @@
 package com.althaaf.fruitarians.core.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.althaaf.fruitarians.core.data.local.model.RecommendationModel
 import com.althaaf.fruitarians.databinding.ItemRecommendationBinding
+import com.althaaf.fruitarians.ui.fruitvariant.FruitVariantActivity
 import com.bumptech.glide.Glide
 
 class RecommendationAdapter(private val listRecommendation: List<RecommendationModel>): RecyclerView.Adapter<RecommendationAdapter.MyViewHolder>() {
@@ -16,7 +18,9 @@ class RecommendationAdapter(private val listRecommendation: List<RecommendationM
                 .into(binding.imgRecommendation)
 
             itemView.setOnClickListener {
-
+                val intent = Intent(itemView.context, FruitVariantActivity::class.java)
+                intent.putExtra(FruitVariantActivity.EXTRA_SEARCH, data.search)
+                itemView.context.startActivity(intent)
             }
         }
     }
