@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="6dp"
+    android:backgroundTint="#ECF2FF"
+    app:cardCornerRadius="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="36dp"
+        android:paddingTop="32dp"
+        android:paddingBottom="32dp">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/fresh" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/Medium16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Freshness Detection Result"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lottieLoading" />
+
+        z`<TextView
+            android:id="@+id/result_fresh"
+            style="@style/Regular16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            tools:text="fresh_banana" />
+
+        <TextView
+            android:id="@+id/tv_title2"
+            style="@style/Medium16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Accuration Result"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/result_fresh" />
+
+        <TextView
+            android:id="@+id/result_accuration"
+            style="@style/Regular16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/tv_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title2"
+            tools:text="0.99999997" />
+
+        <TextView
+            android:id="@+id/textView16"
+            style="@style/Medium16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="24dp"
+            android:text="How is the freshness accuracy result?"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/result_accuration" />
+
+        <ImageView
+            android:id="@+id/sad_face"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/face_sad"
+            app:layout_constraintEnd_toStartOf="@+id/neutral_face"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+        <TextView
+            android:id="@+id/tv_bad"
+            style="@style/Regular14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Bad"
+            app:layout_constraintEnd_toEndOf="@+id/sad_face"
+            app:layout_constraintStart_toStartOf="@+id/sad_face"
+            app:layout_constraintTop_toBottomOf="@+id/sad_face" />
+
+        <ImageView
+            android:id="@+id/neutral_face"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/face_neutral"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/sad_face" />
+
+        <TextView
+            android:id="@+id/tv_neutral"
+            style="@style/Regular14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Neutral"
+            app:layout_constraintEnd_toEndOf="@+id/neutral_face"
+            app:layout_constraintStart_toStartOf="@+id/neutral_face"
+            app:layout_constraintTop_toBottomOf="@+id/neutral_face" />
+
+        <ImageView
+            android:id="@+id/happy_face"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/happy_face"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/neutral_face"
+            app:layout_constraintTop_toTopOf="@+id/sad_face" />
+
+        <TextView
+            android:id="@+id/tv_happy"
+            style="@style/Regular14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Excellent"
+            app:layout_constraintEnd_toEndOf="@+id/happy_face"
+            app:layout_constraintStart_toStartOf="@+id/happy_face"
+            app:layout_constraintTop_toBottomOf="@+id/happy_face" />
+
+        <TextView
+            android:id="@+id/tv_emot_select"
+            style="@style/Regular14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            app:layout_constraintEnd_toEndOf="@+id/happy_face"
+            app:layout_constraintStart_toStartOf="@+id/sad_face"
+            app:layout_constraintTop_toBottomOf="@+id/tv_neutral"
+            tools:text="Select one of the three options above" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_submit_emot"
+            style="@style/MediumWhite16sp"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="34dp"
+            android:background="@drawable/bg_button_started"
+            android:text="Submit"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_emot_select" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
