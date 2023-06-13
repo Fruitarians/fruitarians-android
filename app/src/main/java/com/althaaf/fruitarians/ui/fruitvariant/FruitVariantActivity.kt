@@ -21,15 +21,28 @@ class FruitVariantActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFruitVariantBinding
     private lateinit var fruitVariantViewModel: FruitVariantViewModel
 
+    private var searchResult: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFruitVariantBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupViewModel()
-        setupAllFruit(query = null)
+        setupData()
+        setupAllFruit()
         setupAction()
         searchHandler()
+    }
+
+    private fun setupData() {
+        val extra_search = intent.getStringExtra(EXTRA_SEARCH) ?: ""
+        if (extra_search != "") {
+            binding.tvSearch.visibility = View.VISIBLE
+            binding.btnResultSearch.visibility = View.VISIBLE
+            binding.btnResultSearch.text = extra_search
+            searchResult = extra_search
+        }
     }
 
     private fun searchHandler() {
@@ -39,19 +52,14 @@ class FruitVariantActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
             override fun afterTextChanged(s: Editable?) {
-                val query = s.toString()
-                setupAllFruit(query)
+                searchResult = s.toString()
+                setupAllFruit()
             }
         })
     }
 
-    private fun setupAction() {
-        binding.btnBack.setOnClickListener {
-            this.onBackPressedDispatcher.onBackPressed()
-        }
-    }
 
-    private fun setupAllFruit(query: String?) {
+    private fun setupAllFruit() {
         val adapter = FruitVariantListAdapter(this)
         binding.rvFruitVariant.layoutManager = GridLayoutManager(this, 2)
         binding.rvFruitVariant.adapter = adapter.withLoadStateFooter(
@@ -60,7 +68,7 @@ class FruitVariantActivity : AppCompatActivity() {
             }
         )
 
-        fruitVariantViewModel.getAllFruit(q = query).observe(this) {
+        fruitVariantViewModel.getAllFruit(q = searchResult).observe(this) {
             adapter.submitData(lifecycle, it)
         }
 
@@ -73,7 +81,19 @@ class FruitVariantActivity : AppCompatActivity() {
                 binding.noProduct.visibility = View.GONE
             }
         }
+    }
 
+    private fun setupAction() {
+        binding.btnBack.setOnClickListener {
+            this.onBackPressedDispatcher.onBackPressed()
+        }
+
+        binding.btnResultSearch.setOnClickListener {
+            binding.tvSearch.visibility = View.GONE
+            binding.btnResultSearch.visibility = View.GONE
+            searchResult = ""
+            setupAllFruit()
+        }
     }
 
     private fun setupViewModel() {
@@ -81,5 +101,9 @@ class FruitVariantActivity : AppCompatActivity() {
             this,
             HomeViewModelFactory.getInstance(this)
         )[FruitVariantViewModel::class.java]
+    }
+
+    companion object {
+        const val EXTRA_SEARCH = "extra_search"
     }
 }
