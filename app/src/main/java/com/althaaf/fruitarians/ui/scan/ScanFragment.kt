@@ -39,12 +39,4 @@ class ScanFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val window: Window? = activity?.window
-            window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.white)
-        }
-    }
-
 }
