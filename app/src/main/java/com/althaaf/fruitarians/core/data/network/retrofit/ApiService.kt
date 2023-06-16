@@ -8,6 +8,8 @@ import com.althaaf.fruitarians.core.data.network.authentication.response.login.L
 import com.althaaf.fruitarians.core.data.network.authentication.response.login.SentTokenResponse
 import com.althaaf.fruitarians.core.data.network.authentication.response.login.VerifyPasswordResponse
 import com.althaaf.fruitarians.core.data.network.authentication.response.register.RegisterResponse
+import com.althaaf.fruitarians.core.data.network.cart.CartRequest
+import com.althaaf.fruitarians.core.data.network.cart.CartResponse
 import com.althaaf.fruitarians.core.data.network.dashboard.DataUserResponse
 import com.althaaf.fruitarians.core.data.network.dashboard.article.ArticleResponse
 import com.althaaf.fruitarians.core.data.network.dashboard.article.DetailArticleResponse
@@ -182,12 +184,6 @@ interface ApiService {
         @Query("search") search: String?,
     ): BuahResponse
 
-    @GET("buah/")
-    suspend fun getSearchBuah(
-        @Header("Authorization") token: String,
-        @Query("search") search: String?,
-    ): BuahResponse
-
     @GET("vendor/")
     suspend fun getAllSubsVendor(
         @Header("Authorization") token: String,
@@ -240,5 +236,28 @@ interface ApiService {
         @Path("delete_bookmark_userId") delete_bookmark_userId: String,
     ): GeneralMembershipResponse
 
+    @GET("user/carts")
+    suspend fun getCartUser(
+        @Header("Authorization") token: String,
+    ): CartResponse
+
+    @POST("user/carts")
+    suspend fun addtoCart(
+        @Header("Authorization") token: String,
+        @Body cartRequest: CartRequest
+    ): GeneralMembershipResponse
+
+    @DELETE("user/carts/{id_cart}/{id_buah}")
+    suspend fun deleteFruitCart(
+        @Header("Authorization") token: String,
+        @Path("id_cart") id_cart: String,
+        @Path("id_buah") id_buah: String,
+    ): GeneralMembershipResponse
+
+    @DELETE("user/carts/{id_cart}")
+    suspend fun deleteStoreCart(
+        @Header("Authorization") token: String,
+        @Path("id_cart") id_cart: String,
+    ) : GeneralMembershipResponse
 
 }
