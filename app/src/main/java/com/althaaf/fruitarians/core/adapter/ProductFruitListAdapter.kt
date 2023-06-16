@@ -4,12 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.core.data.network.dashboard.fruitstore.detail.BuahItem
+import com.althaaf.fruitarians.core.helper.formatToFormattedString
 import com.althaaf.fruitarians.databinding.ItemListBuahBinding
 import com.althaaf.fruitarians.ui.detailfruitstore.DetailSpecificFruitActivity
 import com.bumptech.glide.Glide
@@ -18,7 +18,8 @@ class ProductFruitListAdapter(private val context: Context, private val idToko: 
 
     class MyViewHolder(private val binding: ItemListBuahBinding, private val context: Context, private val idToko: String): RecyclerView.ViewHolder(binding.root) {
         fun bind(data: BuahItem) {
-            binding.priceProduct.text = context.getString(R.string.price, data.harga)
+            val formatPrice = data.harga.formatToFormattedString()
+            binding.priceProduct.text = context.getString(R.string.priceFormat, formatPrice)
             binding.titleListProduct.text = data.name
             Glide.with(itemView.context)
                 .load(data.gambar)
