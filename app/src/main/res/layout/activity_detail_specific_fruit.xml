@@ -55,6 +55,7 @@
             android:layout_marginTop="16dp"
             app:shapeAppearanceOverlay="@style/RoundedSquare16dp"
             android:background="@drawable/bg_features_fruit_variant"
+            android:scaleType="fitXY"
             tools:src="@tools:sample/avatars"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -155,8 +156,8 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieLoading"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
