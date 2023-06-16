@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import com.althaaf.fruitarians.core.data.network.cart.CartRequest
 import com.althaaf.fruitarians.core.data.network.dashboard.DashboardRepository
-import com.althaaf.fruitarians.core.data.network.dashboard.fruitstore.DataItem
 import com.althaaf.fruitarians.core.data.network.dashboard.fruitstore.detail.BuahItem
 import com.althaaf.fruitarians.core.data.network.dashboard.fruitstore.detailfruit.DetailSpecificFruitResponse
 import com.althaaf.fruitarians.core.data.network.dashboard.membership.GeneralMembershipResponse
@@ -21,6 +21,10 @@ class DetailFruitStoreViewModel(private val dashboardRepository: DashboardReposi
 
     fun getSpecificFruit(idToko: String, idBuah: String): LiveData<ApiResult<DetailSpecificFruitResponse>> {
         return dashboardRepository.getSpecificFruit(idToko,idBuah)
+    }
+
+    fun addFruitToCart(cartRequest: CartRequest): LiveData<ApiResult<GeneralMembershipResponse>> {
+        return dashboardRepository.addToCart(cartRequest)
     }
 
     fun addUserMembership(idToko: String): LiveData<ApiResult<GeneralMembershipResponse>> {

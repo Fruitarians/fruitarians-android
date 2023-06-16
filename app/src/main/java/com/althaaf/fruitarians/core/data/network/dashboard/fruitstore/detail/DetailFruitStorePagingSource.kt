@@ -3,8 +3,6 @@ package com.althaaf.fruitarians.core.data.network.dashboard.fruitstore.detail
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.althaaf.fruitarians.core.data.local.datastore.UserPreference
-import com.althaaf.fruitarians.core.data.network.dashboard.fruitstore.DataItem
-import com.althaaf.fruitarians.core.data.network.dashboard.fruitstore.FruitStorePagingSource
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first

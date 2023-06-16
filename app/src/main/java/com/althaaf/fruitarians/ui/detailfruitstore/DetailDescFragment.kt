@@ -6,17 +6,17 @@ import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.core.adapter.MarginItemDecoration
 import com.althaaf.fruitarians.core.adapter.RecommendationAdapter
 import com.althaaf.fruitarians.core.data.local.model.DataRecommendation
 import com.althaaf.fruitarians.core.data.network.dashboard.fruitstore.DataItem
 import com.althaaf.fruitarians.databinding.FragmentDetailDescBinding
-import com.bumptech.glide.Glide
 
 class DetailDescFragment : Fragment() {
 
@@ -26,7 +26,7 @@ class DetailDescFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentDetailDescBinding.inflate(inflater,container, false)
         return binding.root
     }
@@ -46,6 +46,31 @@ class DetailDescFragment : Fragment() {
         binding.rvRecommendation.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         binding.rvRecommendation.addItemDecoration(itemDecoration)
         binding.rvRecommendation.setHasFixedSize(true)
+        binding.rvRecommendation.isNestedScrollingEnabled = true
+
+        val listener = object : RecyclerView.OnItemTouchListener {
+            override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
+                val action = e.action
+                return if ( binding.rvRecommendation.canScrollHorizontally(RecyclerView.FOCUS_FORWARD)) {
+                    when (action) {
+                        MotionEvent.ACTION_MOVE -> rv.parent
+                            .requestDisallowInterceptTouchEvent(true)
+                    }
+                    false
+                } else {
+                    when (action) {
+                        MotionEvent.ACTION_MOVE -> rv.parent
+                            .requestDisallowInterceptTouchEvent(true)
+                    }
+                    false
+                }
+            }
+
+            override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {}
+            override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {}
+        }
+
+        binding.rvRecommendation.addOnItemTouchListener(listener)
     }
 
     private fun setupDetailData() {
@@ -58,11 +83,11 @@ class DetailDescFragment : Fragment() {
         }
 
         binding.namaTokoDetail.text = dataDetail?.name
-        binding.alamatTokoDetail.text = "${dataDetail?.alamat?.deskripsiAlamat}, ${dataDetail?.alamat?.kota}, ${dataDetail?.alamat?.negara}"
+        binding.alamatTokoDetail.text = getString(R.string.addressFormat, "${dataDetail?.alamat?.deskripsiAlamat}", "${dataDetail?.alamat?.kota}", "${dataDetail?.alamat?.negara}")
 
         val deskripsiToko = dataDetail?.deskripsi
         if (deskripsiToko == null) {
-            binding.deskripsiTokoDetail.text = "No Description"
+            binding.deskripsiTokoDetail.text = getString(R.string.no_description)
         } else {
             binding.deskripsiTokoDetail.text = deskripsiToko
         }

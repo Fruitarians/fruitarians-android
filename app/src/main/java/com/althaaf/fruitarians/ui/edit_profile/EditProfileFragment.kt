@@ -2,7 +2,6 @@ package com.althaaf.fruitarians.ui.edit_profile
 
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -14,17 +13,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import com.althaaf.fruitarians.R
-import com.althaaf.fruitarians.core.data.network.dashboard.Data
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiResult
 import com.althaaf.fruitarians.core.helper.ProfileViewModelFactory
 import com.althaaf.fruitarians.core.helper.reduceFileImage
 import com.althaaf.fruitarians.core.helper.uriToFile
 import com.althaaf.fruitarians.databinding.FragmentEditProfileBinding
-import com.althaaf.fruitarians.ui.profile.ProfileFragment
 import com.bumptech.glide.Glide
-import kotlinx.coroutines.NonDisposableHandle.parent
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -43,8 +38,7 @@ class EditProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -200,9 +194,6 @@ class EditProfileFragment : Fragment() {
                         Toast.makeText(requireActivity(), response.error, Toast.LENGTH_SHORT).show()
                         Log.d(TAG, response.error)
                     }
-                    else -> {
-                        Toast.makeText(requireActivity(), "Failed, try again", Toast.LENGTH_SHORT).show()
-                    }
                 }
             }
         }
@@ -230,13 +221,14 @@ class EditProfileFragment : Fragment() {
                     edEditAddress.setText(user.alamat.deskripsiAlamat)
                     edEditKota.setText(user.alamat.kota)
                     autoCompleteTextState.setText(user.alamat.negara)
-                    binding.imgProfile.setImageDrawable(
+                    tvEmail.text = user.email
+                    imgProfile.setImageDrawable(
                         ContextCompat.getDrawable(
                             binding.imgProfile.context,
                             R.drawable.default_user_biasa
                         )
                     )
-                    binding.imgProfile.elevation = 0F
+                    imgProfile.elevation = 0F
                 }
             } else {
                 binding.apply {
@@ -244,21 +236,22 @@ class EditProfileFragment : Fragment() {
                     edEditTelepon.setText(user.telepon)
                     edEditAddress.setText(user.alamat.deskripsiAlamat)
                     edEditKota.setText(user.alamat.kota)
+                    tvEmail.text = user.email
                     autoCompleteTextState.setText(user.alamat.negara)
                     if (user.deskripsi == null) edEditDescription.setText("") else edEditDescription.setText(
                         user.deskripsi
                     )
                     if (user.jamOperasional?.hariBukaAwal == null) autoCompleteTextStartDay.setText(
                         ""
-                    ) else autoCompleteTextStartDay.setText(user.jamOperasional?.hariBukaAwal)
+                    ) else autoCompleteTextStartDay.setText(user.jamOperasional.hariBukaAwal)
                     if (user.jamOperasional?.hariBukaAkhir == null) autoCompleteTextEndDay.setText("") else autoCompleteTextEndDay.setText(
-                        user.jamOperasional?.hariBukaAkhir
+                        user.jamOperasional.hariBukaAkhir
                     )
                     if (user.jamOperasional?.jamBuka == null) edEditTimeStart.setText("") else edEditTimeStart.setText(
-                        user.jamOperasional?.jamBuka
+                        user.jamOperasional.jamBuka
                     )
                     if (user.jamOperasional?.jamTutup == null) edEditTimeEnd.setText("") else edEditTimeEnd.setText(
-                        user.jamOperasional?.jamTutup
+                        user.jamOperasional.jamTutup
                     )
                 }
 

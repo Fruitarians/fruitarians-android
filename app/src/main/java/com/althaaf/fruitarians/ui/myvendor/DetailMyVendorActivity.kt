@@ -7,20 +7,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.althaaf.fruitarians.R
-import com.althaaf.fruitarians.core.data.network.authentication.request.register.RegisterRequest
 import com.althaaf.fruitarians.core.data.network.profile.myvendor.VendorSubsItem
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiResult
 import com.althaaf.fruitarians.core.helper.MyVendorViewModelFactory
 import com.althaaf.fruitarians.databinding.ActivityDetailMyVendorBinding
-import com.althaaf.fruitarians.ui.authentication.register.RegisterContinueActivity
-import com.althaaf.fruitarians.ui.product.ProductAddUpdateActivity
-import com.althaaf.fruitarians.ui.product.ProductAddUpdateActivity.Companion.EXTRA_DETAIL
 
 class DetailMyVendorActivity : AppCompatActivity() {
 

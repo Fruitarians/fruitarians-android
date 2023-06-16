@@ -9,9 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.althaaf.fruitarians.R
-import com.althaaf.fruitarians.core.adapter.ArticleListAdapter
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiResult
 import com.althaaf.fruitarians.core.helper.HomeViewModelFactory
 import com.althaaf.fruitarians.databinding.ActivityDetailArticleBinding
@@ -90,9 +88,6 @@ class DetailArticleActivity : AppCompatActivity() {
                         binding.lottieLoading.visibility = View.GONE
                         Toast.makeText(this, response.error, Toast.LENGTH_SHORT).show()
                         Log.d(TAG, response.error)
-                    }
-                    else -> {
-                        Toast.makeText(this, "Failed, try again", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

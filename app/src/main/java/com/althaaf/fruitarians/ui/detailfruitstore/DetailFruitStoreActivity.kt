@@ -1,21 +1,14 @@
 package com.althaaf.fruitarians.ui.detailfruitstore
 
-import android.content.Intent
-import android.net.Uri
-import android.os.Binder
 import android.os.Build
-import android.os.Build.VERSION_CODES.P
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat.setPaddingRelative
 import androidx.lifecycle.ViewModelProvider
-import androidx.viewpager2.widget.ViewPager2
 import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.core.data.network.dashboard.fruitstore.DataItem
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiResult
@@ -52,7 +45,7 @@ class DetailFruitStoreActivity : AppCompatActivity() {
                     is ApiResult.Success -> {
                        if (response.data.data.bookmarked) {
                            isMembership = true
-                           binding.btnAddMembership.text = "Membership"
+                           binding.btnAddMembership.text = getString(R.string.membership)
                            binding.btnAddMembership.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0)
                            val newPaddingEnd = resources.getDimensionPixelSize(R.dimen.new_padding_end2)
                            binding.btnAddMembership.setPaddingRelative(binding.btnAddMembership.paddingStart, binding.btnAddMembership.paddingTop, newPaddingEnd, binding.btnAddMembership.paddingBottom)
@@ -62,17 +55,13 @@ class DetailFruitStoreActivity : AppCompatActivity() {
                            binding.btnAddMembership.setCompoundDrawablesWithIntrinsicBounds(null, null, iconFollow, null)
                            val newPaddingEnd = resources.getDimensionPixelSize(R.dimen.new_padding_end)
                            binding.btnAddMembership.setPaddingRelative(binding.btnAddMembership.paddingStart, binding.btnAddMembership.paddingTop, newPaddingEnd, binding.btnAddMembership.paddingBottom)
-                           binding.btnAddMembership.text = "Follow"
+                           binding.btnAddMembership.text = getString(R.string.follow)
                        }
                     }
 
                     is ApiResult.Error -> {
                         Toast.makeText(this, response.error, Toast.LENGTH_SHORT).show()
                         Log.d(TAG, "Error: ${response.error}")
-                    }
-
-                    else -> {
-                        Toast.makeText(this, "Failed, try again", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -118,7 +107,7 @@ class DetailFruitStoreActivity : AppCompatActivity() {
     }
 
     private fun addStateButton() {
-        binding.btnAddMembership.text = "Membership"
+        binding.btnAddMembership.text = getString(R.string.membership)
         binding.btnAddMembership.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0)
         val newPaddingEnd = resources.getDimensionPixelSize(R.dimen.new_padding_end2)
         binding.btnAddMembership.setPaddingRelative(binding.btnAddMembership.paddingStart, binding.btnAddMembership.paddingTop, newPaddingEnd, binding.btnAddMembership.paddingBottom)
@@ -140,9 +129,6 @@ class DetailFruitStoreActivity : AppCompatActivity() {
                         Log.d(TAG, "Error: ${response.error}")
                     }
 
-                    else -> {
-                        Toast.makeText(this, "Failed, try again", Toast.LENGTH_SHORT).show()
-                    }
                 }
             }
         }
@@ -173,7 +159,7 @@ class DetailFruitStoreActivity : AppCompatActivity() {
         binding.btnAddMembership.setCompoundDrawablesWithIntrinsicBounds(null, null, iconFollow, null)
         val newPaddingEnd = resources.getDimensionPixelSize(R.dimen.new_padding_end)
         binding.btnAddMembership.setPaddingRelative(binding.btnAddMembership.paddingStart, binding.btnAddMembership.paddingTop, newPaddingEnd, binding.btnAddMembership.paddingBottom)
-        binding.btnAddMembership.text = "Follow"
+        binding.btnAddMembership.text = getString(R.string.follow)
     }
 
     private fun cancelMembership() {
@@ -190,10 +176,6 @@ class DetailFruitStoreActivity : AppCompatActivity() {
                     is ApiResult.Error -> {
                         Toast.makeText(this, response.error, Toast.LENGTH_SHORT).show()
                         Log.d(TAG, "Error: ${response.error}")
-                    }
-
-                    else -> {
-                        Toast.makeText(this, "Failed, try again", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -222,6 +204,7 @@ class DetailFruitStoreActivity : AppCompatActivity() {
         binding.detailCreatedToko.text = getString(R.string.created, dataDetailToko?.bergabung)
 
         val sectionsPagerAdapter = SectionsPagerAdapter(this)
+
         if(dataDetailToko != null) {
             idToko = dataDetailToko.id
             namaToko = dataDetailToko.name

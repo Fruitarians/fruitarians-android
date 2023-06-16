@@ -12,6 +12,7 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.core.data.network.authentication.request.login.SentTokenRequest
@@ -57,9 +58,6 @@ class ForgotPasswordActivity : AppCompatActivity() {
                                 binding.lottieLoading.visibility = View.GONE
                                 binding.buttonSentEmail.visibility = View.VISIBLE
                             }
-                            else -> {
-                                Toast.makeText(this, "Failed, try again", Toast.LENGTH_SHORT).show()
-                            }
                         }
                     }
                 }
@@ -98,7 +96,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
         val targetTextHeader = getString(R.string.token)
 
         val spannableStringHeader = SpannableString(fullTextHeader)
-        val changeColor = ForegroundColorSpan(resources.getColor(R.color.green))
+        val changeColor = ForegroundColorSpan(ContextCompat.getColor(this, R.color.green))
 
         val startIndexHeader = fullTextHeader.indexOf(targetTextHeader)
         val endIndexHeader = startIndexHeader + targetTextHeader.length

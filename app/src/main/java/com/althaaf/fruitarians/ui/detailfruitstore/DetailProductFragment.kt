@@ -5,12 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.core.adapter.LoadingStateAdapter
 import com.althaaf.fruitarians.core.adapter.ProductFruitListAdapter
 import com.althaaf.fruitarians.core.helper.HomeViewModelFactory
@@ -26,7 +23,7 @@ class DetailProductFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentDetailProductBinding.inflate(inflater, container , false)
         return binding.root
     }
