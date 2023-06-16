@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:layout_gravity="center">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/icon_store"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/market"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/name_store"
+            style="@style/Medium14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_store"
+            app:layout_constraintStart_toEndOf="@+id/icon_store"
+            app:layout_constraintTop_toTopOf="@+id/icon_store"
+            tools:text="Toko Buah Lionel Messi" />
+
+        <ImageView
+            android:id="@+id/icon_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/next2"
+            app:layout_constraintBottom_toBottomOf="@+id/name_store"
+            app:layout_constraintStart_toEndOf="@+id/name_store"
+            app:layout_constraintTop_toTopOf="@+id/name_store" />
+
+        <ImageButton
+            android:id="@+id/btn_delete_cart_store"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_delete"
+            android:src="@drawable/material_symbols_delete"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/icon_next" />
+
+        <ImageView
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_divider"
+            android:backgroundTint="#F5F5F5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name_store" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_cart_buah"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/cart_note"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cart_note"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:hint="Note"
+            app:layout_constraintBottom_toTopOf="@+id/btn_checkout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_note"
+                style="@style/Regular14sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="5"
+                android:textColor="?android:attr/textColorPrimary" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_checkout"
+            style="@style/MediumWhite14sp"
+            android:layout_width="150dp"
+            android:layout_height="58dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/green"
+            android:drawableEnd="@drawable/ic_baseline_whatsapp_white"
+            android:drawablePadding="-4dp"
+            android:text="Checkout"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_total"
+            style="@style/Regular12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            app:layout_constraintBottom_toTopOf="@+id/total_price"
+            app:layout_constraintEnd_toEndOf="@+id/total_price" />
+
+        <TextView
+            android:id="@+id/total_price"
+            style="@style/MediumGreen16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:textAlignment="textEnd"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_checkout"
+            app:layout_constraintEnd_toStartOf="@+id/btn_checkout"
+            tools:text="Rp160.000" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
