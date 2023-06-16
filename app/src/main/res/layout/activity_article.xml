@@ -20,7 +20,7 @@
             style="@style/SemiBold14sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Articles"
+            android:text="@string/articles"
             android:layout_gravity="center" />
 
         <ImageButton
@@ -30,6 +30,7 @@
             android:layout_marginStart="32dp"
             android:background="@drawable/bg_button_back"
             android:src="@drawable/btnback"
+            tools:ignore="ContentDescription"
             />
     </androidx.appcompat.widget.Toolbar>
 
@@ -46,7 +47,7 @@
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieLoading"
         android:layout_width="wrap_content"
-        android:layout_height="82dp"
+        android:layout_height="150dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
