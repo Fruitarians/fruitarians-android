@@ -48,9 +48,6 @@
             android:name=".ui.fruitscan.FruitScanActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.edit_profile.EditProfileActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.product.ProductAddUpdateActivity"
             android:exported="false" />
         <activity
