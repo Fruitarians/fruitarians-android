@@ -16,11 +16,7 @@ import com.althaaf.fruitarians.core.data.network.authentication.response.registe
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiResult
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiService
 import com.google.gson.Gson
-import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.HttpException
-import retrofit2.Response
-import java.io.IOException
 
 class AuthRepository(
     private val apiService: ApiService,
