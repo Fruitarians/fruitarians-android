@@ -1,6 +1,6 @@
 # Fruitarians Mobile App
 
-![Fruitarians Logo](illus1.png)
+<img src="illus1.png" width="64">
 
 ## Introduction
 Welcome to Fruitarians, the ultimate mobile application for detecting fruit freshness and exploring a wide range of fruits. This readme provides an overview of the Fruitarians mobile app, its features, and the technologies used in its development.
@@ -42,8 +42,7 @@ git clone https://github.com/Fruitarians/fruitarians-android.git
 3. Build and run the app on an emulator or physical device.
 
 To design the user interface, use Figma, here is the link:
-[Design Figma](https://capstone-project-387215.et.r.appspot.com/api-docs/](https://www.figma.com/file/KZkSefWCH4r1nmVsbxPiVu/Fruitarians?type=design&node-id=109%3A230&t=KGxvrQLeGzCrFJaW-1
-)
+[Design Figma](https://www.figma.com/file/KZkSefWCH4r1nmVsbxPiVu/Fruitarians?type=design&node-id=109%3A230&t=KGxvrQLeGzCrFJaW-1)
 
 For more detailed instructions and troubleshooting tips, please consult the project's GitHub repository:
 [GitHub Repository](https://github.com/Fruitarians/fruitarians-android)
