@@ -34,7 +34,7 @@ class MyStoreActivity : AppCompatActivity() {
     }
 
     private fun setupListBuah() {
-        val adapter = TokoBuahListAdapter()
+        val adapter = TokoBuahListAdapter(this)
         binding.rvProductStore.layoutManager = LinearLayoutManager(this)
         binding.rvProductStore.adapter = adapter.withLoadStateFooter(
             footer = LoadingStateAdapter{
