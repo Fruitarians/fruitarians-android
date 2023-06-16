@@ -264,6 +264,12 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="MediumGreen16sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/green</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <style name="Medium16sp" parent="TextAppearance.AppCompat">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:fontFamily">@font/poppins_medium</item>
@@ -326,6 +332,12 @@
 
     <style name="SemiBold16sp" parent="TextAppearance.AppCompat">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="SemiBoldGreen16sp" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/green_pressed</item>
         <item name="android:fontFamily">@font/poppins_semi_bold</item>
         <item name="android:textSize">16sp</item>
     </style>
