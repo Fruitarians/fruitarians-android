@@ -3,7 +3,7 @@ package com.althaaf.fruitarians.core.data.local.model
 import com.althaaf.fruitarians.R
 
 object DataRecommendation {
-    val dataFruitRecommendation = listOf<RecommendationModel>(
+    val dataFruitRecommendation = listOf(
         RecommendationModel(
             id = 1,
             name = "Buah Pisang",
