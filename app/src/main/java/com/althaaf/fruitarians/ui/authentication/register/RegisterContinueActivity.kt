@@ -14,6 +14,7 @@ import android.view.WindowManager
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.core.data.network.authentication.request.register.RegisterRequest
@@ -90,9 +91,6 @@ class RegisterContinueActivity : AppCompatActivity() {
                                     binding.lottieLoading.visibility = View.GONE
                                     binding.buttonRegister.visibility = View.VISIBLE
                                 }
-                                else -> {
-                                    Toast.makeText(this, "Failed, try again", Toast.LENGTH_SHORT).show()
-                                }
                             }
                         }
                     }
@@ -142,7 +140,7 @@ class RegisterContinueActivity : AppCompatActivity() {
         val targetTextHeader = getString(R.string.target_text_register)
 
         val spannableStringHeader = SpannableString(fullTextHeader)
-        val changeColor = ForegroundColorSpan(resources.getColor(R.color.green))
+        val changeColor = ForegroundColorSpan(ContextCompat.getColor(this, R.color.green))
 
         val startIndexHeader = fullTextHeader.indexOf(targetTextHeader)
         val endIndexHeader = startIndexHeader + targetTextHeader.length
