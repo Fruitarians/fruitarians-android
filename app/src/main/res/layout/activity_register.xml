@@ -49,6 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="34dp"
             android:layout_marginTop="8dp"
+            app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/title_name"
             app:layout_constraintTop_toBottomOf="@+id/title_name">
@@ -79,6 +80,7 @@
             android:id="@+id/ed_register_role"
             style="@style/CustomOutlinedBoxDropDown"
             android:layout_width="0dp"
+            app:hintEnabled="false"
             android:layout_height="wrap_content"
             android:layout_marginEnd="34dp"
             android:layout_marginTop="8dp"
@@ -116,6 +118,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="34dp"
             android:layout_marginTop="8dp"
+            app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/title_email"
             app:layout_constraintTop_toBottomOf="@+id/title_email">
@@ -152,6 +155,7 @@
             app:counterMaxLength="20"
             app:passwordToggleEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
+            app:hintEnabled="false"
             app:layout_constraintStart_toStartOf="@+id/title_password"
             app:layout_constraintTop_toBottomOf="@+id/title_password">
 
@@ -185,6 +189,7 @@
             android:layout_marginEnd="34dp"
             android:layout_marginTop="8dp"
             app:counterEnabled="true"
+            app:hintEnabled="false"
             app:counterMaxLength="20"
             app:passwordToggleEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"

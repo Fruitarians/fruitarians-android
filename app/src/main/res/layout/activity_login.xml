@@ -44,14 +44,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="34dp"
+        app:hintEnabled="false"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/title_email"
         app:layout_constraintTop_toBottomOf="@+id/title_email">
 
         <com.google.android.material.textfield.TextInputEditText
-            style="@style/Regular12sp"
             android:id="@+id/input_login_email"
+            style="@style/Regular12sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -79,6 +80,7 @@
         android:layout_marginTop="8dp"
         app:counterEnabled="true"
         app:counterMaxLength="20"
+        app:hintEnabled="false"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/title_password"
@@ -125,7 +127,7 @@
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieLoading"
         android:layout_width="wrap_content"
-        android:layout_height="54dp"
+        android:layout_height="100dp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"
