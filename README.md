@@ -1,6 +1,6 @@
 # Fruitarians Mobile App
 
-<img src="illus1.png" width="64">
+<img src="illus1.png" width="120">
 
 ## Introduction
 Welcome to Fruitarians, the ultimate mobile application for detecting fruit freshness and exploring a wide range of fruits. This readme provides an overview of the Fruitarians mobile app, its features, and the technologies used in its development.
