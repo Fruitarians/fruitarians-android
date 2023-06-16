@@ -11,7 +11,7 @@ class ApiConfig {
     companion object {
 
         private var BASE_URL = "https://capstone-project-387215.et.r.appspot.com/"
-        private var BASE_URL_2 = "https://fruitarians-model-cwdelhrmna-et.a.run.app/"
+        private var BASE_URL_2 = "https://fruitarians-model-endpoint-cwdelhrmna-et.a.run.app/"
 
         fun getApiService() : ApiService {
             val loggingInterceptor = if (BuildConfig.DEBUG) {
