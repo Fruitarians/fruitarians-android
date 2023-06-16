@@ -4,22 +4,24 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.althaaf.fruitarians.core.data.network.dashboard.fruitstore.DataItem
+import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.core.data.network.profile.mystore.BuahItem
+import com.althaaf.fruitarians.core.helper.formatToFormattedString
 import com.althaaf.fruitarians.databinding.ItemProductmystoreBinding
 import com.althaaf.fruitarians.ui.product.ProductAddUpdateActivity
 import com.bumptech.glide.Glide
 
-class TokoBuahListAdapter: PagingDataAdapter<BuahItem, TokoBuahListAdapter.MyViewHolder>(DIFF_CALLBACK) {
+class TokoBuahListAdapter(private val context: Context): PagingDataAdapter<BuahItem, TokoBuahListAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
-    class MyViewHolder(private val binding: ItemProductmystoreBinding): RecyclerView.ViewHolder(binding.root) {
+    class MyViewHolder(private val context: Context, private val binding: ItemProductmystoreBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: BuahItem) {
+            val formatPrice = item.harga.formatToFormattedString()
+
             binding.nameProductMystore.text = item.name
-            binding.priceProductMystore.text = item.harga.toString()
+            binding.priceProductMystore.text = context.getString(R.string.priceFormat, formatPrice)
             binding.stockProductMystore.text = item.stok.toString()
 
             Glide.with(itemView.context)
@@ -46,7 +48,7 @@ class TokoBuahListAdapter: PagingDataAdapter<BuahItem, TokoBuahListAdapter.MyVie
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemProductmystoreBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MyViewHolder(binding)
+        return MyViewHolder(context,binding)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
