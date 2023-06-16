@@ -1,13 +1,13 @@
 package com.althaaf.fruitarians.core.data.network.dashboard
 
 import android.util.Log
-import androidx.datastore.preferences.protobuf.Api
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.liveData
 import androidx.paging.*
 import com.althaaf.fruitarians.core.data.local.datastore.UserPreference
 import com.althaaf.fruitarians.core.data.local.model.UserModel
+import com.althaaf.fruitarians.core.data.network.cart.CartRequest
 import com.althaaf.fruitarians.core.data.network.dashboard.article.ArticleResponse
 import com.althaaf.fruitarians.core.data.network.dashboard.article.DetailArticleResponse
 import com.althaaf.fruitarians.core.data.network.dashboard.fruitstore.DataItem
@@ -189,29 +189,6 @@ class DashboardRepository(
         ).liveData
     }
 
-    fun getSearchBuah(q: String?): LiveData<ApiResult<BuahResponse>> = liveData {
-        emit(ApiResult .Loading)
-        try {
-            val dataUserSession = withContext(Dispatchers.IO) {
-                dataStore.getUser().first()
-            }
-            val response = apiService.getSearchBuah(token = "${dataUserSession.tokenType} ${dataUserSession.accessToken}", search = q)
-
-            Log.d(TAG, "GetSearchBuah: Success Get Search Buah")
-            emit(ApiResult.Success(response))
-        } catch (e: HttpException) {
-            val errorBody = e.response()?.errorBody()?.string()
-            if (errorBody != null) {
-                val gson = Gson()
-                val errorResponse = gson.fromJson(errorBody, BuahResponse::class.java)
-                val errorMessage = errorResponse.message
-                emit(ApiResult.Error(errorMessage))
-            }
-        } catch (e: Exception) {
-            emit(ApiResult.Error(e.message ?: "Unknown Error"))
-        }
-    }
-
     fun getUserMembership(): LiveData<PagingData<DataItem>> {
         return Pager(
             config = PagingConfig(
@@ -275,6 +252,27 @@ class DashboardRepository(
             }
 
             val response = apiService.deleteUserMembership(token = "${userSession.tokenType} ${userSession.accessToken}", delete_bookmark_userId = idToko)
+            emit(ApiResult.Success(response))
+        } catch (e: HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            if (errorBody != null) {
+                val gson = Gson()
+                val errorResponse = gson.fromJson(errorBody, GeneralMembershipResponse::class.java)
+                val errorMessage = errorResponse.message
+                emit(ApiResult.Error(errorMessage))
+            }
+        } catch (e: Exception) {
+            emit(ApiResult.Error(e.message ?: "Unknown Error"))
+        }
+    }
+
+    fun addToCart(cartRequest: CartRequest): LiveData<ApiResult<GeneralMembershipResponse>> = liveData {
+        emit(ApiResult.Loading)
+        try {
+            val userSession = withContext(Dispatchers.IO) {
+                dataStore.getUser().first()
+            }
+            val response = apiService.addtoCart(token = "${userSession.tokenType} ${userSession.accessToken}", cartRequest = cartRequest)
             emit(ApiResult.Success(response))
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
