@@ -10,6 +10,8 @@ import android.net.Uri
 import android.os.Environment
 import com.althaaf.fruitarians.R
 import java.io.*
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -77,4 +79,11 @@ fun reduceFileImage(file: File): File {
     } while (streamLength > MAXIMAL_SIZE)
     bitmap.compress(Bitmap.CompressFormat.JPEG, compressQuality, FileOutputStream(file))
     return file
+}
+
+fun Int.formatToFormattedString(): String {
+    val symbols = DecimalFormatSymbols(Locale.getDefault())
+    symbols.groupingSeparator = '.'
+    val formatter = DecimalFormat("#,###", symbols)
+    return formatter.format(this)
 }
