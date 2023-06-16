@@ -4,17 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.core.adapter.LoadingStateAdapter
 import com.althaaf.fruitarians.core.adapter.PartnerVendorListAdapter
-import com.althaaf.fruitarians.core.adapter.TokoBuahListAdapter
 import com.althaaf.fruitarians.core.helper.MyVendorViewModelFactory
 import com.althaaf.fruitarians.databinding.ActivityMyVendorBinding
-import com.althaaf.fruitarians.ui.product.ProductAddUpdateActivity
 
 class MyVendorActivity : AppCompatActivity() {
 

@@ -1,6 +1,5 @@
 package com.althaaf.fruitarians.core.data.network.profile
 
-import androidx.datastore.preferences.protobuf.Api
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import androidx.paging.Pager
@@ -8,8 +7,6 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
 import com.althaaf.fruitarians.core.data.local.datastore.UserPreference
-import com.althaaf.fruitarians.core.data.network.profile.addproduct.AddProductResponse
-import com.althaaf.fruitarians.core.data.network.profile.mystore.TokoBuahPagingSource
 import com.althaaf.fruitarians.core.data.network.profile.myvendor.SubsVendorPagingSource
 import com.althaaf.fruitarians.core.data.network.profile.myvendor.VendorSubsItem
 import com.althaaf.fruitarians.core.data.network.profile.myvendor.addsubs.AddSubsRequest
@@ -102,7 +99,6 @@ class MyVendorRepository(private val apiService: ApiService, private val dataSto
     }
 
     companion object {
-        private const val TAG = "MyVendorRepository"
         @Volatile
         private var instance: MyVendorRepository? = null
         fun getInstance(apiService: ApiService, dataStore: UserPreference): MyVendorRepository =

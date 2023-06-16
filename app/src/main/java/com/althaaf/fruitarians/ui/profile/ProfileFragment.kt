@@ -1,30 +1,22 @@
 package com.althaaf.fruitarians.ui.profile
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import com.althaaf.fruitarians.MainActivity
 import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.core.data.network.dashboard.Alamat
 import com.althaaf.fruitarians.core.data.network.dashboard.Data
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiResult
 import com.althaaf.fruitarians.core.helper.ProfileViewModelFactory
-import com.althaaf.fruitarians.databinding.FragmentHomeBinding
 import com.althaaf.fruitarians.databinding.FragmentProfileBinding
 import com.althaaf.fruitarians.ui.authentication.login.LoginActivity
-import com.althaaf.fruitarians.ui.edit_profile.EditProfileActivity
-import com.althaaf.fruitarians.ui.mystore.MyStoreActivity
 import com.bumptech.glide.Glide
-import com.google.gson.annotations.SerializedName
 
 class ProfileFragment : Fragment() {
 
@@ -37,7 +29,7 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
@@ -93,7 +85,7 @@ class ProfileFragment : Fragment() {
                             binding.btnMystore.visibility = View.GONE
                             binding.lottieLoading.visibility = View.GONE
                             binding.nameProfile.text = response.data.data.name
-                            binding.roleProfile.text = "User"
+                            binding.roleProfile.text = getString(R.string.User)
                             binding.imgProfile.elevation = 0F
                             binding.imgProfile.setImageDrawable(ContextCompat.getDrawable(binding.imgProfile.context, R.drawable.default_user_biasa))
                         } else if (roleUser == "toko") {
@@ -118,7 +110,7 @@ class ProfileFragment : Fragment() {
 
                             binding.lottieLoading.visibility = View.GONE
                             binding.nameProfile.text = response.data.data.name
-                            binding.roleProfile.text = "Seller"
+                            binding.roleProfile.text = getString(R.string.seller)
                             binding.btnMystore.visibility = View.VISIBLE
                             binding.btnMyvendor.visibility = View.GONE
 
@@ -154,7 +146,7 @@ class ProfileFragment : Fragment() {
 
                             binding.lottieLoading.visibility = View.GONE
                             binding.nameProfile.text = response.data.data.name
-                            binding.roleProfile.text = "Vendor"
+                            binding.roleProfile.text = getString(R.string.vendor)
                             binding.btnMystore.visibility = View.GONE
                             binding.btnMyvendor.visibility = View.VISIBLE
 
@@ -174,11 +166,6 @@ class ProfileFragment : Fragment() {
                     is ApiResult.Error -> {
                         binding.lottieLoading.visibility = View.GONE
                         Toast.makeText(requireActivity(), response.error, Toast.LENGTH_SHORT).show()
-                    }
-
-                    else -> {
-                        binding.lottieLoading.visibility = View.GONE
-                        Toast.makeText(requireActivity(), "Failed, try again", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -217,13 +204,6 @@ class ProfileFragment : Fragment() {
                                 .show()
                             binding.progressBar.visibility = View.GONE
                         }
-                        else -> {
-                            Toast.makeText(
-                                requireActivity(),
-                                "Failed, try again",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
                     }
                 }
             }
@@ -261,7 +241,4 @@ class ProfileFragment : Fragment() {
         startActivity(intent)
     }
 
-    companion object {
-        private const val TAG = "ProfileFragment"
-    }
 }

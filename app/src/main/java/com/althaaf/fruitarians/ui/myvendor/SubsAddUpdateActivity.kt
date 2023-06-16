@@ -84,10 +84,6 @@ class SubsAddUpdateActivity : AppCompatActivity() {
                                 Toast.makeText(this, response.error, Toast.LENGTH_SHORT).show()
                                 Log.e(TAG, response.error)
                             }
-
-                            else -> {
-                                Toast.makeText(this, "Unknown Error", Toast.LENGTH_SHORT).show()
-                            }
                         }
                     }
                 }

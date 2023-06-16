@@ -12,8 +12,6 @@ import android.view.WindowManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.althaaf.fruitarians.MainActivity
-import com.althaaf.fruitarians.R
-import com.althaaf.fruitarians.core.di.Injection
 import com.althaaf.fruitarians.databinding.ActivitySplashScreenBinding
 import com.althaaf.fruitarians.ui.onboarding.OnBoardingActivity
 import kotlinx.coroutines.Dispatchers
@@ -26,7 +24,7 @@ class SplashScreenActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashScreenBinding
     private lateinit var splashScreenViewModel: SplashScreenViewModel
 
-    private val SPLASH_TIME_OUT:Long = 3000
+    private val SPLASH_TIME_OUT: Long = 3000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -3,7 +3,6 @@ package com.althaaf.fruitarians.core.adapter
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.althaaf.fruitarians.R
 
 class MarginItemDecoration(private val margin: Int) : RecyclerView.ItemDecoration() {
 

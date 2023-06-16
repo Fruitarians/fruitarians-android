@@ -12,7 +12,7 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.lifecycle.ViewModel
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.althaaf.fruitarians.MainActivity
 import com.althaaf.fruitarians.R
@@ -76,9 +76,6 @@ class LoginActivity : AppCompatActivity() {
                                 binding.lottieLoading.visibility = View.GONE
                                 binding.buttonLogin.visibility = View.VISIBLE
                             }
-                            else -> {
-                                Toast.makeText(this, "Failed, try again", Toast.LENGTH_SHORT).show()
-                            }
                         }
                     }
                 }
@@ -122,7 +119,7 @@ class LoginActivity : AppCompatActivity() {
         val targetTextHeader = getString(R.string.login_text)
 
         val spannableStringHeader = SpannableString(fullTextHeader)
-        val changeColor = ForegroundColorSpan(resources.getColor(R.color.green))
+        val changeColor = ForegroundColorSpan(ContextCompat.getColor(this, R.color.green))
 
         val startIndexHeader = fullTextHeader.indexOf(targetTextHeader)
         val endIndexHeader = startIndexHeader + targetTextHeader.length
@@ -139,7 +136,7 @@ class LoginActivity : AppCompatActivity() {
         val targetTextSignUp = getString(R.string.sign_up)
 
         val spannableStringSignUp = SpannableString(fulltextSignUp)
-        val changeColorSignUp = ForegroundColorSpan(resources.getColor(R.color.green))
+        val changeColorSignUp = ForegroundColorSpan(ContextCompat.getColor(this, R.color.green))
 
         val startIndexSignUp = fulltextSignUp.indexOf(targetTextSignUp)
         val endIndexSignUp = startIndexSignUp + targetTextSignUp.length

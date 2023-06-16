@@ -1,15 +1,9 @@
 package com.althaaf.fruitarians
 
-import android.graphics.Color
-import android.graphics.PorterDuff
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.iterator
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.althaaf.fruitarians.databinding.ActivityMainBinding
 

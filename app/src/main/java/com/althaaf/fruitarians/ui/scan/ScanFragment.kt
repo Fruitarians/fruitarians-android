@@ -1,6 +1,5 @@
 package com.althaaf.fruitarians.ui.scan
 
-import android.os.Build
 import android.os.Bundle
 import android.view.*
 import androidx.core.content.ContextCompat
@@ -17,7 +16,7 @@ class ScanFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentScanBinding.inflate(inflater, container, false)
         return binding.root

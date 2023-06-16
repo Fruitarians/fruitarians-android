@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.althaaf.fruitarians.core.data.network.profile.MyStoreRepository
 import com.althaaf.fruitarians.core.di.Injection
 import com.althaaf.fruitarians.ui.mystore.MyStoreViewModel
-import com.althaaf.fruitarians.ui.product.ProductAddUpdateActivity
 import com.althaaf.fruitarians.ui.product.ProductAddUpdateViewModel
 
 class MyStoreViewModelFactory private constructor(private val myStoreRepository: MyStoreRepository): ViewModelProvider.NewInstanceFactory() {

@@ -6,10 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
-import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.databinding.ActivityOnBoardingBinding
 import com.althaaf.fruitarians.ui.authentication.login.LoginActivity
-import com.althaaf.fruitarians.ui.authentication.register.RegisterActivity
 
 class OnBoardingActivity : AppCompatActivity() {
 

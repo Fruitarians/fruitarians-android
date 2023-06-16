@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import com.althaaf.fruitarians.core.data.network.profile.MyStoreRepository
 import com.althaaf.fruitarians.core.data.network.profile.addproduct.AddProductResponse
 import com.althaaf.fruitarians.core.data.network.profile.deleteproduct.DeleteProductResponse
-import com.althaaf.fruitarians.core.data.network.profile.deleteproduct.deleteRequest
 import com.althaaf.fruitarians.core.data.network.profile.updateproduct.UpdateProductResponse
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiResult
 import okhttp3.MultipartBody

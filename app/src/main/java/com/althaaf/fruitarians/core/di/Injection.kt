@@ -6,6 +6,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.althaaf.fruitarians.core.data.local.datastore.UserPreference
 import com.althaaf.fruitarians.core.data.network.authentication.AuthRepository
+import com.althaaf.fruitarians.core.data.network.cart.CartRepository
 import com.althaaf.fruitarians.core.data.network.dashboard.DashboardRepository
 import com.althaaf.fruitarians.core.data.network.fruitscan.FruitScanRepository
 import com.althaaf.fruitarians.core.data.network.profile.MyStoreRepository
@@ -54,5 +55,11 @@ object Injection {
 
     fun provideDataStore(context: Context): UserPreference {
         return UserPreference.getInstance(context.dataStore)
+    }
+
+    fun provideCartRepository(context: Context): CartRepository {
+        val apiService = ApiConfig.getApiService()
+        val dataStore = UserPreference.getInstance(context.dataStore)
+        return CartRepository.getInstance(apiService, dataStore)
     }
 }

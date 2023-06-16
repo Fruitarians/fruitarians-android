@@ -6,13 +6,9 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.althaaf.fruitarians.core.data.network.profile.mystore.BuahItem
 import com.althaaf.fruitarians.core.data.network.profile.myvendor.VendorSubsItem
 import com.althaaf.fruitarians.databinding.ItemPartnerBinding
 import com.althaaf.fruitarians.ui.myvendor.DetailMyVendorActivity
-import com.althaaf.fruitarians.ui.myvendor.SubsAddUpdateActivity
-import com.althaaf.fruitarians.ui.product.ProductAddUpdateActivity
-import com.bumptech.glide.Glide
 
 class PartnerVendorListAdapter: PagingDataAdapter<VendorSubsItem, PartnerVendorListAdapter.MyViewHolder>(DIFF_CALLBACK) {
 

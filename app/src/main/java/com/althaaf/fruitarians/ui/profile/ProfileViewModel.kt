@@ -3,7 +3,6 @@ package com.althaaf.fruitarians.ui.profile
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.althaaf.fruitarians.core.data.local.model.UserModel
 import com.althaaf.fruitarians.core.data.network.dashboard.DataUserResponse
 import com.althaaf.fruitarians.core.data.network.profile.ProfileRepository
 import com.althaaf.fruitarians.core.data.network.profile.logout.LogoutResponse

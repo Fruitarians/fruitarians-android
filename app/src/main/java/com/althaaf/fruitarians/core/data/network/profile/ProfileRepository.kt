@@ -2,15 +2,11 @@ package com.althaaf.fruitarians.core.data.network.profile
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.liveData
 import com.althaaf.fruitarians.core.data.local.datastore.UserPreference
-import com.althaaf.fruitarians.core.data.local.model.UserModel
-import com.althaaf.fruitarians.core.data.network.dashboard.DashboardRepository
 import com.althaaf.fruitarians.core.data.network.dashboard.DataUserResponse
 import com.althaaf.fruitarians.core.data.network.profile.changepassword.ChangePasswordRequest
 import com.althaaf.fruitarians.core.data.network.profile.changepassword.ChangePasswordResponse
-import com.althaaf.fruitarians.core.data.network.profile.editprofile.EditProfileRequest
 import com.althaaf.fruitarians.core.data.network.profile.editprofile.EditProfileResponse
 import com.althaaf.fruitarians.core.data.network.profile.logout.LogoutResponse
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiResult

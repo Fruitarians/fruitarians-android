@@ -6,11 +6,8 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.althaaf.fruitarians.R
-import com.althaaf.fruitarians.core.adapter.FruitStoreListAdapter
 import com.althaaf.fruitarians.core.adapter.LoadingStateAdapter
 import com.althaaf.fruitarians.core.adapter.MembershipListAdapter
-import com.althaaf.fruitarians.core.adapter.TokoBuahListAdapter
 import com.althaaf.fruitarians.core.helper.HomeViewModelFactory
 import com.althaaf.fruitarians.databinding.ActivityMembershipBinding
 

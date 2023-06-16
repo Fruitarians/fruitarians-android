@@ -57,9 +57,6 @@ class PasswordVerifyActivity : AppCompatActivity() {
                                 binding.lottieLoading.visibility = View.GONE
                                 binding.buttonVerify.visibility = View.VISIBLE
                             }
-                            else -> {
-                                Toast.makeText(this, "Failed, try again", Toast.LENGTH_SHORT).show()
-                            }
                         }
                     }
                 }

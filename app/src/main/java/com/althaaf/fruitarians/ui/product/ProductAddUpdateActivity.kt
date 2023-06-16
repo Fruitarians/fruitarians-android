@@ -15,14 +15,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import com.althaaf.fruitarians.R
-import com.althaaf.fruitarians.core.data.network.profile.deleteproduct.deleteRequest
 import com.althaaf.fruitarians.core.data.network.profile.mystore.BuahItem
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiResult
 import com.althaaf.fruitarians.core.helper.MyStoreViewModelFactory
 import com.althaaf.fruitarians.core.helper.reduceFileImage
 import com.althaaf.fruitarians.core.helper.uriToFile
 import com.althaaf.fruitarians.databinding.ActivityProductAddUpdateBinding
-import com.althaaf.fruitarians.ui.mystore.MyStoreActivity
 import com.bumptech.glide.Glide
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
@@ -259,9 +257,6 @@ class ProductAddUpdateActivity : AppCompatActivity() {
                         Toast.makeText(this, response.error, Toast.LENGTH_SHORT).show()
                         Log.d(TAG, response.error)
                     }
-                    else -> {
-                        Toast.makeText(this, "Failed, try again", Toast.LENGTH_SHORT).show()
-                    }
                 }
             }
         }
@@ -305,9 +300,6 @@ class ProductAddUpdateActivity : AppCompatActivity() {
                         Toast.makeText(this, response.error, Toast.LENGTH_SHORT).show()
                         Log.d(TAG, response.error)
                     }
-                    else -> {
-                        Toast.makeText(this, "Failed, try again", Toast.LENGTH_SHORT).show()
-                    }
                 }
             }
         }
@@ -348,9 +340,6 @@ class ProductAddUpdateActivity : AppCompatActivity() {
                         binding.btnAddNewProduct.visibility = View.VISIBLE
                         Toast.makeText(this, response.error, Toast.LENGTH_SHORT).show()
                         Log.d(TAG, response.error)
-                    }
-                    else -> {
-                        Toast.makeText(this, "Failed, try again", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

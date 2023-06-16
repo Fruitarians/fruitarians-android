@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import com.althaaf.fruitarians.core.data.local.datastore.UserPreference
 import com.althaaf.fruitarians.core.di.Injection
-import com.althaaf.fruitarians.core.helper.AuthViewModelFactory
 
 class SplashScreenViewModel(private val dataStore: UserPreference): ViewModel() {
     fun getUserSession() = dataStore.getUser().asLiveData()
