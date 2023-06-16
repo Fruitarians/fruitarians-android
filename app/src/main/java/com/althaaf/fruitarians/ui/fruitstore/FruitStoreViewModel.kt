@@ -10,7 +10,6 @@ import com.althaaf.fruitarians.core.data.network.dashboard.DataUserResponse
 import com.althaaf.fruitarians.core.data.network.dashboard.fruitstore.DataItem
 import com.althaaf.fruitarians.core.data.network.dashboard.fruitstore.FruitStoreResponse
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiResult
-import kotlinx.coroutines.launch
 
 class FruitStoreViewModel(private val dashboardRepository: DashboardRepository): ViewModel() {
 

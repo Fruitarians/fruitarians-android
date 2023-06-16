@@ -1,6 +1,5 @@
 package com.althaaf.fruitarians.core.adapter
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup

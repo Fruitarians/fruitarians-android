@@ -1,6 +1,5 @@
 package com.althaaf.fruitarians.core.data.network.fruitscan
 
-import androidx.datastore.preferences.protobuf.Api
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiResult
@@ -20,7 +19,6 @@ class FruitScanRepository(private val apiService: ApiService) {
     }
 
     companion object {
-        private const val TAG = "FruitScanRepository"
         @Volatile
         private var instance: FruitScanRepository? = null
         fun getInstance(apiService: ApiService) : FruitScanRepository =

@@ -1,7 +1,6 @@
 package com.althaaf.fruitarians.ui.fruitstore
 
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -74,10 +73,6 @@ class FruitStoreActivity : AppCompatActivity() {
                         Toast.makeText(this, response.error, Toast.LENGTH_SHORT).show()
                         Log.d(TAG, "Error: ${response.error}")
                     }
-
-                    else -> {
-                        Toast.makeText(this, "Failed, try again", Toast.LENGTH_SHORT).show()
-                    }
                 }
             }
         }
@@ -105,9 +100,6 @@ class FruitStoreActivity : AppCompatActivity() {
                     is ApiResult.Error -> {
                         binding.lottieLoadingCard.visibility = View.GONE
                         Toast.makeText(this, response.error, Toast.LENGTH_SHORT).show()
-                    }
-                    else -> {
-                        Toast.makeText(this, "Failed, try again", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

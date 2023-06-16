@@ -13,7 +13,6 @@ import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.core.adapter.MarginItemDecoration
 import com.althaaf.fruitarians.core.adapter.RecommendationAdapter
 import com.althaaf.fruitarians.core.data.local.model.DataRecommendation
-import com.althaaf.fruitarians.core.data.network.authentication.response.login.User
 import com.althaaf.fruitarians.core.helper.HomeViewModelFactory
 import com.althaaf.fruitarians.databinding.FragmentHomeBinding
 

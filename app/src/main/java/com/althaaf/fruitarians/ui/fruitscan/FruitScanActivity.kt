@@ -6,10 +6,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
-import android.graphics.Camera
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -24,7 +22,6 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiResult
@@ -34,7 +31,6 @@ import com.althaaf.fruitarians.core.helper.rotateFile
 import com.althaaf.fruitarians.core.helper.uriToFile
 import com.althaaf.fruitarians.databinding.ActivityFruitScanBinding
 import com.althaaf.fruitarians.databinding.DialogScanBinding
-import com.althaaf.fruitarians.ui.product.ProductAddUpdateActivity
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -176,9 +172,6 @@ class FruitScanActivity : AppCompatActivity() {
                         Toast.makeText(this, response.error, Toast.LENGTH_SHORT).show()
                         Log.d(TAG, response.error)
                     }
-                    else -> {
-                        Toast.makeText(this, "Failed, try again", Toast.LENGTH_SHORT).show()
-                    }
                 }
             }
         }
@@ -219,15 +212,19 @@ class FruitScanActivity : AppCompatActivity() {
                 }
 
                 btnSubmitEmot.setOnClickListener {
-                    if (emotSelect == 0) {
-                        showToast("Thank you for the feedback, we will increase our accuracy again")
-                        dismiss()
-                    } else if (emotSelect == 50) {
-                        showToast("Thank you for the feedback")
-                        dismiss()
-                    } else {
-                        showToast("Thank you for the feedback, Good to know")
-                        dismiss()
+                    when (emotSelect) {
+                        0 -> {
+                            showToast("Thank you for the feedback, we will increase our accuracy again")
+                            dismiss()
+                        }
+                        50 -> {
+                            showToast("Thank you for the feedback")
+                            dismiss()
+                        }
+                        else -> {
+                            showToast("Thank you for the feedback, Good to know")
+                            dismiss()
+                        }
                     }
                 }
             }
@@ -260,20 +257,24 @@ class FruitScanActivity : AppCompatActivity() {
 
 
     private fun setTextColor(selectedText: TextView, vararg otherTexts: TextView) {
-        if (selectedText.text == "Bad") {
-            selectedText.setTextColor(ContextCompat.getColor(this, R.color.red))
-            otherTexts.forEach { otherText ->
-                otherText.setTextColor(ContextCompat.getColor(this, R.color.black))
+        when (selectedText.text) {
+            "Bad" -> {
+                selectedText.setTextColor(ContextCompat.getColor(this, R.color.red))
+                otherTexts.forEach { otherText ->
+                    otherText.setTextColor(ContextCompat.getColor(this, R.color.black))
+                }
             }
-        } else if (selectedText.text == "Neutral") {
-            selectedText.setTextColor(ContextCompat.getColor(this, R.color.gray))
-            otherTexts.forEach { otherText ->
-                otherText.setTextColor(ContextCompat.getColor(this, R.color.black))
+            "Neutral" -> {
+                selectedText.setTextColor(ContextCompat.getColor(this, R.color.gray))
+                otherTexts.forEach { otherText ->
+                    otherText.setTextColor(ContextCompat.getColor(this, R.color.black))
+                }
             }
-        } else {
-            selectedText.setTextColor(ContextCompat.getColor(this, R.color.green))
-            otherTexts.forEach { otherText ->
-                otherText.setTextColor(ContextCompat.getColor(this, R.color.black))
+            else -> {
+                selectedText.setTextColor(ContextCompat.getColor(this, R.color.green))
+                otherTexts.forEach { otherText ->
+                    otherText.setTextColor(ContextCompat.getColor(this, R.color.black))
+                }
             }
         }
     }

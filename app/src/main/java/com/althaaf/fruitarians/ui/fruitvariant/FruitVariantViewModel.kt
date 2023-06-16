@@ -15,8 +15,4 @@ class FruitVariantViewModel(private val dashboardRepository: DashboardRepository
         return dashboardRepository.getAllBuah(q).cachedIn(viewModelScope)
     }
 
-    fun getSearchBuah(q: String?): LiveData<ApiResult<BuahResponse>> {
-        return dashboardRepository.getSearchBuah(q)
-    }
-
 }

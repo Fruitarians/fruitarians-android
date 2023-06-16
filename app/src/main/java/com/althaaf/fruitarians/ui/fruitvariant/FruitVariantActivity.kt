@@ -5,14 +5,11 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.core.adapter.FruitVariantListAdapter
 import com.althaaf.fruitarians.core.adapter.LoadingStateAdapter
-import com.althaaf.fruitarians.core.adapter.ProductFruitListAdapter
 import com.althaaf.fruitarians.core.helper.HomeViewModelFactory
 import com.althaaf.fruitarians.databinding.ActivityFruitVariantBinding
 
@@ -36,12 +33,12 @@ class FruitVariantActivity : AppCompatActivity() {
     }
 
     private fun setupData() {
-        val extra_search = intent.getStringExtra(EXTRA_SEARCH) ?: ""
-        if (extra_search != "") {
+        val extraSearch = intent.getStringExtra(EXTRA_SEARCH) ?: ""
+        if (extraSearch != "") {
             binding.tvSearch.visibility = View.VISIBLE
             binding.btnResultSearch.visibility = View.VISIBLE
-            binding.btnResultSearch.text = extra_search
-            searchResult = extra_search
+            binding.btnResultSearch.text = extraSearch
+            searchResult = extraSearch
         }
     }
 
