@@ -6,7 +6,6 @@
     <string name="title_profile">Profile</string>
     <string name="title_scan">Scan</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <string name="title_menu_1">Welcome</string>
     <string name="title_menu_2">Choose</string>
     <string name="title_menu_3">Scan</string>
@@ -41,10 +40,14 @@
     <string name="token">token</string>
     <string name="myname">%1$s</string>
     <string name="price">Rp%d</string>
+    <string name="priceFormat">Rp%s</string>
+    <string name="addressFormat">%1s, %3s, %2s</string>
+    <string name="unitFormat">/ %s</string>
     <string name="stock">Stock %d</string>
     <string name="created">Joined %1$s</string>
     <string name="tab_text_1">Detail</string>
     <string name="tab_text_2">Buah</string>
+    <string name="no_description">No Description</string>
     <string name="title_activity_scan">ScanActivity</string>
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -57,5 +60,11 @@
     <string name="open_hari">%1$s – %2$s</string>
     <string name="open_jam">%1$s – %2$s</string>
     <string name="unit">/%1$s</string>
+    <string name="membership">Membership</string>
+    <string name="follow">Follow</string>
+    <string name="User">User</string>
+    <string name="seller">Seller</string>
+    <string name="vendor">Vendor</string>
+    <string name="articles">Articles</string>
 
 </resources>
