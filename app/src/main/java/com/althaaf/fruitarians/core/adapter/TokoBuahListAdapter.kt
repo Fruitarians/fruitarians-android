@@ -22,7 +22,7 @@ class TokoBuahListAdapter(private val context: Context): PagingDataAdapter<BuahI
 
             binding.nameProductMystore.text = item.name
             binding.priceProductMystore.text = context.getString(R.string.priceFormat, formatPrice)
-            binding.stockProductMystore.text = item.stok.toString()
+            binding.stockProductMystore.text = context.getString(R.string.stock, item.stok)
 
             Glide.with(itemView.context)
                 .load(item.gambar)
