@@ -12,6 +12,7 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import androidx.core.content.ContextCompat
 import com.althaaf.fruitarians.R
 import com.althaaf.fruitarians.core.data.network.authentication.request.register.RegisterRequest
 import com.althaaf.fruitarians.databinding.ActivityRegisterBinding
@@ -51,14 +52,14 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun responseRole(): String {
-        if (binding.autoCompleteTextRole.text.toString() == "Buyer") {
-            return "user"
+        return if (binding.autoCompleteTextRole.text.toString() == "Buyer") {
+            "user"
         } else if (binding.autoCompleteTextRole.text.toString() == "Seller") {
-            return "toko"
+            "toko"
         } else if (binding.autoCompleteTextRole.text.toString() == "Vendor") {
-            return "vendor"
+            "vendor"
         } else {
-            return ""
+            ""
         }
     }
 
@@ -119,7 +120,7 @@ class RegisterActivity : AppCompatActivity() {
         val targetTextHeader = getString(R.string.target_text_register)
 
         val spannableStringHeader = SpannableString(fullTextHeader)
-        val changeColor = ForegroundColorSpan(resources.getColor(R.color.green))
+        val changeColor = ForegroundColorSpan(ContextCompat.getColor(this, R.color.green))
 
         val startIndexHeader = fullTextHeader.indexOf(targetTextHeader)
         val endIndexHeader = startIndexHeader + targetTextHeader.length
