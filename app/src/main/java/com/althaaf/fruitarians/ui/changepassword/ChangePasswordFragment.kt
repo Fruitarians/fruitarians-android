@@ -1,22 +1,16 @@
 package com.althaaf.fruitarians.ui.changepassword
 
-import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.util.Patterns
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.althaaf.fruitarians.R
-import com.althaaf.fruitarians.core.data.network.authentication.request.register.RegisterRequest
 import com.althaaf.fruitarians.core.data.network.profile.changepassword.ChangePasswordRequest
 import com.althaaf.fruitarians.core.data.network.retrofit.ApiResult
 import com.althaaf.fruitarians.core.helper.ProfileViewModelFactory
 import com.althaaf.fruitarians.databinding.FragmentChangePasswordBinding
-import com.althaaf.fruitarians.ui.authentication.register.RegisterContinueActivity
-import com.althaaf.fruitarians.ui.edit_profile.EditProfileFragmentArgs
 import com.bumptech.glide.Glide
 
 class ChangePasswordFragment : Fragment() {
@@ -28,8 +22,7 @@ class ChangePasswordFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         _binding = FragmentChangePasswordBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -53,16 +46,13 @@ class ChangePasswordFragment : Fragment() {
             Glide.with(this)
                 .load(imageUser)
                 .into(binding.imgProfile)
-            binding.imgProfile.elevation = 6F
-
         } else {
             binding.imgProfile.setImageDrawable(
                 ContextCompat.getDrawable(
                     binding.imgProfile.context,
-                    R.drawable.default_img_toko
+                    R.drawable.icon_lock
                 )
             )
-            binding.imgProfile.elevation = 6F
         }
 
     }
@@ -99,9 +89,6 @@ class ChangePasswordFragment : Fragment() {
                                 Toast.makeText(requireActivity(), response.error, Toast.LENGTH_SHORT).show()
                                 binding.lottieLoading.visibility = View.GONE
                                 binding.btnChangePassword.visibility = View.VISIBLE
-                            }
-                            else -> {
-                                Toast.makeText(requireActivity(), "Failed, try again", Toast.LENGTH_SHORT).show()
                             }
                         }
                     }
